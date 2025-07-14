@@ -142,6 +142,10 @@ class Optimizer:
             experience = self.experience_utils.format_experience(processed_experience, sample["round"])
 
             operator_description = self.graph_utils.load_operators_description(self.operators)
+
+            # 如何使用operator？operator_description!这里的operator_description其实就是operator.json里的内容
+            # 包括了description和interface
+
             log_data = self.data_utils.load_log(sample["round"])
 
             graph_optimize_prompt = self.graph_utils.create_graph_optimize_prompt(

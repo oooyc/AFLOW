@@ -11,6 +11,11 @@ from typing import Dict
 import requests
 from tqdm import tqdm
 
+import sys
+print(sys.path)
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
+
+
 from scripts.logs import logger
 
 
