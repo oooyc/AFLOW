@@ -1,0 +1,7 @@
+{
+    "father node": 5,
+    "modification": "Add a new Custom operator to analyze the problem and generate test cases before code generation. This will help ensure that the generated code addresses all aspects of the problem and can handle various scenarios.",
+    "before": 0.8209302325581396,
+    "after": 0.8186046511627907,
+    "succeed": false
+}

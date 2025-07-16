@@ -1,0 +1,7 @@
+{
+    "father node": 2,
+    "modification": "Add a ScEnsemble operator to generate multiple solutions and select the best one before testing.",
+    "before": 0.8348837209302327,
+    "after": 0.8209302325581396,
+    "succeed": false
+}

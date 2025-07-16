@@ -1,0 +1,7 @@
+{
+    "father node": 5,
+    "modification": "Add a new custom operation for additional fact verification after the initial fact check, and modify the FORMAT_ANSWER_PROMPT to ensure more concise answers.",
+    "before": 0.6106678125795773,
+    "after": 0.6100431268078327,
+    "succeed": false
+}

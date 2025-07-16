@@ -1,0 +1,7 @@
+{
+    "father node": 11,
+    "modification": "Add a review step using the Custom operator to analyze and improve the generated solution before testing it. This can help catch potential issues and enhance the solution quality before running the test cases.",
+    "before": 0.9199999999999999,
+    "after": 0.8866666666666667,
+    "succeed": false
+}

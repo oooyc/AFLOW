@@ -1,0 +1,7 @@
+{
+    "father node": 17,
+    "modification": "Add a calculation verification step after the final check to ensure numerical accuracy of the solution.",
+    "before": 0.8779999999999999,
+    "after": 0.8700000000000001,
+    "succeed": false
+}

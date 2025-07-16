@@ -1,0 +1,7 @@
+{
+    "father node": 1,
+    "modification": "Add a Test operator after the CustomCodeGenerate to validate and potentially improve the generated solution.",
+    "before": 0.9333333333333333,
+    "after": 0.9066666666666666,
+    "succeed": false
+}

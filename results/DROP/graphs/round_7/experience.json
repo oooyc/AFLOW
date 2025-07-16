@@ -1,0 +1,7 @@
+{
+    "father node": 3,
+    "modification": "Modify the custom method to focus on answer formatting and add a new custom method for error checking and correction.",
+    "before": 0.7404901960784314,
+    "after": 0.040381896006269284,
+    "succeed": false
+}

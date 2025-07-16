@@ -1,0 +1,7 @@
+{
+    "father node": 14,
+    "modification": "Add a new Custom operator to generate test cases before the final test step. This will help ensure the solution is tested more thoroughly before submission.",
+    "before": 0.8325581395348838,
+    "after": 0.7930232558139536,
+    "succeed": false
+}

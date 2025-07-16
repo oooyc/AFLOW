@@ -1,0 +1,7 @@
+{
+    "father node": 3,
+    "modification": "Add a new Custom operator to perform numerical extraction and formatting on the final answer. This will help address issues with answer formatting and ensure numerical answers are presented correctly.",
+    "before": 0.7404901960784314,
+    "after": 0.7394117647058824,
+    "succeed": false
+}

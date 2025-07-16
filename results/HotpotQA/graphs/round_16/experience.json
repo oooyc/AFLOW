@@ -1,0 +1,7 @@
+{
+    "father node": 14,
+    "modification": "Add a new custom operator for profession verification to address the issue with identifying professions accurately, as seen in the \"John Lanchester and Alan Dean Foster\" error. This will be placed after the identity check step and before the fact check step.",
+    "before": 0.617469230116289,
+    "after": 0.6326012712777418,
+    "succeed": true
+}

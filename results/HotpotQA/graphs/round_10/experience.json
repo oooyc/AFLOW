@@ -1,0 +1,7 @@
+{
+    "father node": 7,
+    "modification": "Add a new Custom operator to specifically handle name extraction and verification, addressing the issue with incorrect name identification as seen in the \"Jack Benny Binion\" question.",
+    "before": 0.6156016532487121,
+    "after": 0.6218939883645767,
+    "succeed": true
+}

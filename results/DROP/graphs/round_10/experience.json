@@ -1,0 +1,7 @@
+{
+    "father node": 2,
+    "modification": "Add a ScEnsemble operator to improve answer selection by generating multiple solutions and choosing the most frequent one.",
+    "before": 0.7403921568627451,
+    "after": 0.7624509803921569,
+    "succeed": true
+}

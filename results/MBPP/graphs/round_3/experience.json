@@ -1,0 +1,7 @@
+{
+    "father node": 1,
+    "modification": "Add a Test operator to check and potentially modify the generated solution before returning it. This will help improve the accuracy of the final output.",
+    "before": 0.727906976744186,
+    "after": 0.7232558139534884,
+    "succeed": false
+}

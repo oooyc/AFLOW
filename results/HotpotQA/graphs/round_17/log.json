@@ -1,0 +1,596 @@
+[
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Jake Zyrus",
+        "extracted_output": "Jake Zyrus"
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Season 1",
+        "extracted_output": "Season 1"
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Bhaktivedanta Manor",
+        "extracted_output": "Bhaktivedanta Manor"
+    },
+    {
+        "question": "Which of these universities, Northwestern University or Johns Hopkins University, have a campus outside of the United States territories?",
+        "right_answer": "with other campuses located in Chicago and Doha, Qatar",
+        "model_output": "Johns Hopkins University",
+        "extracted_output": "Johns Hopkins University"
+    },
+    {
+        "question": "VIVA Media AG changed it's name in 2004. What does their new acronym stand for?",
+        "right_answer": "Gesellschaft mit beschränkter Haftung",
+        "model_output": "VIVA Media GmbH",
+        "extracted_output": "VIVA Media GmbH"
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "Greek Revival",
+        "extracted_output": "Greek Revival"
+    },
+    {
+        "question": "The musical composer of Manru was a spokesman for what country's independence?",
+        "right_answer": "Polish independence",
+        "model_output": "Poland",
+        "extracted_output": "Poland"
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "2002",
+        "extracted_output": "2002"
+    },
+    {
+        "question": "Who was the winner of the season of The Rap Game where a contestant named Lady Leshurr as one of her influences?",
+        "right_answer": "Mani",
+        "model_output": "Miss Mulatto",
+        "extracted_output": "Miss Mulatto"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "Steven Spielberg",
+        "extracted_output": "Steven Spielberg"
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Juliet",
+        "extracted_output": "Juliet"
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Benny",
+        "extracted_output": "Benny"
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Teddy the Bear",
+        "extracted_output": "Teddy the Bear"
+    },
+    {
+        "question": "Giselle Cossard was known as Mother Giselle of what type of diety?",
+        "right_answer": "major water deity",
+        "model_output": "Yemoja",
+        "extracted_output": "Yemoja"
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Mad Love",
+        "extracted_output": "Mad Love"
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Not mentioned.",
+        "extracted_output": "Not mentioned."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Different countries.",
+        "extracted_output": "Different countries."
+    },
+    {
+        "question": "Which season did the UCF Knights represent at an American metropolitan public research university in Orlando, Florida?",
+        "right_answer": "2010 NCAA Division",
+        "model_output": "2008",
+        "extracted_output": "2008"
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical considerations of animal use in entertainment.",
+        "extracted_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical considerations of animal use in entertainment."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Benny",
+        "extracted_output": "Benny"
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Juliet",
+        "extracted_output": "Juliet"
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "The driver know for doing backflips off his car lost to which driver in the 2009 NASCAR Nationwide Series?",
+        "right_answer": "Kyle Busch",
+        "model_output": "Carl Edwards",
+        "extracted_output": "Carl Edwards"
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Novelists.",
+        "extracted_output": "Novelists."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Sir Mac",
+        "extracted_output": "Sir Mac"
+    },
+    {
+        "question": "Which of these universities, Northwestern University or Johns Hopkins University, have a campus outside of the United States territories?",
+        "right_answer": "with other campuses located in Chicago and Doha, Qatar",
+        "model_output": "Northwestern University.",
+        "extracted_output": "Northwestern University."
+    },
+    {
+        "question": "Giselle Cossard was known as Mother Giselle of what type of diety?",
+        "right_answer": "major water deity",
+        "model_output": "Yemoja",
+        "extracted_output": "Yemoja"
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Season 1",
+        "extracted_output": "Season 1"
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Not provided.",
+        "extracted_output": "Not provided."
+    },
+    {
+        "question": "Between Death in the Afternoon and Hennchata, whose inventor has more literary fame?",
+        "right_answer": "Death in the Afternoon",
+        "model_output": "Ernest Hemingway",
+        "extracted_output": "Ernest Hemingway"
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "Greek Revival",
+        "extracted_output": "Greek Revival"
+    },
+    {
+        "question": "VIVA Media AG changed it's name in 2004. What does their new acronym stand for?",
+        "right_answer": "Gesellschaft mit beschränkter Haftung",
+        "model_output": "VIVA Media GmbH",
+        "extracted_output": "VIVA Media GmbH"
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "2005",
+        "extracted_output": "2005"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "Steven Spielberg",
+        "extracted_output": "Steven Spielberg"
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Jake Zyrus",
+        "extracted_output": "Jake Zyrus"
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Interscope Records and Mad Love",
+        "extracted_output": "Interscope Records and Mad Love"
+    },
+    {
+        "question": "The musical composer of Manru was a spokesman for what country's independence?",
+        "right_answer": "Polish independence",
+        "model_output": "Poland",
+        "extracted_output": "Poland"
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" addresses ethical considerations in animal use for entertainment.",
+        "extracted_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" addresses ethical considerations in animal use for entertainment."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Bhaktivedanta Manor",
+        "extracted_output": "Bhaktivedanta Manor"
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Benny",
+        "extracted_output": "Benny"
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Juliet",
+        "extracted_output": "Juliet"
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Teddy the Bear",
+        "extracted_output": "Teddy the Bear"
+    },
+    {
+        "question": "Giselle Cossard was known as Mother Giselle of what type of diety?",
+        "right_answer": "major water deity",
+        "model_output": "Yemoja",
+        "extracted_output": "Yemoja"
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Mad Love",
+        "extracted_output": "Mad Love"
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Jake Zyrus",
+        "extracted_output": "Jake Zyrus"
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Not provided.",
+        "extracted_output": "Not provided."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "Greek Revival",
+        "extracted_output": "Greek Revival"
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Season 1",
+        "extracted_output": "Season 1"
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Sam Kelly",
+        "extracted_output": "Sam Kelly"
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Not provided.",
+        "extracted_output": "Not provided."
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical considerations in animal entertainment.",
+        "extracted_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical considerations in animal entertainment."
+    },
+    {
+        "question": "The musical composer of Manru was a spokesman for what country's independence?",
+        "right_answer": "Polish independence",
+        "model_output": "Poland",
+        "extracted_output": "Poland"
+    },
+    {
+        "question": "Which of these universities, Northwestern University or Johns Hopkins University, have a campus outside of the United States territories?",
+        "right_answer": "with other campuses located in Chicago and Doha, Qatar",
+        "model_output": "Johns Hopkins University.",
+        "extracted_output": "Johns Hopkins University."
+    },
+    {
+        "question": "VIVA Media AG changed it's name in 2004. What does their new acronym stand for?",
+        "right_answer": "Gesellschaft mit beschränkter Haftung",
+        "model_output": "VIVA Media GmbH",
+        "extracted_output": "VIVA Media GmbH"
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Bhaktivedanta Manor",
+        "extracted_output": "Bhaktivedanta Manor"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "Steven Spielberg",
+        "extracted_output": "Steven Spielberg"
+    },
+    {
+        "question": "At what height does State Route 160 start?",
+        "right_answer": "4145 ft",
+        "model_output": "Not specified.",
+        "extracted_output": "Not specified."
+    },
+    {
+        "question": "Which season did the UCF Knights represent at an American metropolitan public research university in Orlando, Florida?",
+        "right_answer": "2010 NCAA Division",
+        "model_output": "2008",
+        "extracted_output": "2008"
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Juliet",
+        "extracted_output": "Juliet"
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Season 1",
+        "extracted_output": "Season 1"
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "Greek Revival",
+        "extracted_output": "Greek Revival"
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Teddy the Bear",
+        "extracted_output": "Teddy the Bear"
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "Francis Ford Coppola",
+        "extracted_output": "Francis Ford Coppola"
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Jake Zyrus",
+        "extracted_output": "Jake Zyrus"
+    },
+    {
+        "question": "VIVA Media AG changed it's name in 2004. What does their new acronym stand for?",
+        "right_answer": "Gesellschaft mit beschränkter Haftung",
+        "model_output": "VIVA Media GmbH",
+        "extracted_output": "VIVA Media GmbH"
+    },
+    {
+        "question": "Giselle Cossard was known as Mother Giselle of what type of diety?",
+        "right_answer": "major water deity",
+        "model_output": "Yemoja",
+        "extracted_output": "Yemoja"
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "Indie studio Jumpship developed what puzzle-platform video game released in July 2010?",
+        "right_answer": "Limbo",
+        "model_output": "Jumpship did not develop any puzzle-platform video game released in July 2010.",
+        "extracted_output": "Jumpship did not develop any puzzle-platform video game released in July 2010."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Not provided.",
+        "extracted_output": "Not provided."
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical boundaries in animal entertainment.",
+        "extracted_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" explores ethical boundaries in animal entertainment."
+    },
+    {
+        "question": "Which of these universities, Northwestern University or Johns Hopkins University, have a campus outside of the United States territories?",
+        "right_answer": "with other campuses located in Chicago and Doha, Qatar",
+        "model_output": "Northwestern University.",
+        "extracted_output": "Northwestern University."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Benny",
+        "extracted_output": "Benny"
+    },
+    {
+        "question": "The musical composer of Manru was a spokesman for what country's independence?",
+        "right_answer": "Polish independence",
+        "model_output": "Poland",
+        "extracted_output": "Poland"
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Mad Love",
+        "extracted_output": "Mad Love"
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Kate Fearnley-Whittingstall",
+        "extracted_output": "Kate Fearnley-Whittingstall"
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Bhaktivedanta Manor",
+        "extracted_output": "Bhaktivedanta Manor"
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Jake Zyrus",
+        "extracted_output": "Jake Zyrus"
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Bhaktivedanta Manor",
+        "extracted_output": "Bhaktivedanta Manor"
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Authors",
+        "extracted_output": "Authors"
+    },
+    {
+        "question": "Giselle Cossard was known as Mother Giselle of what type of diety?",
+        "right_answer": "major water deity",
+        "model_output": "Yemoja",
+        "extracted_output": "Yemoja"
+    },
+    {
+        "question": "The musical composer of Manru was a spokesman for what country's independence?",
+        "right_answer": "Polish independence",
+        "model_output": "Poland",
+        "extracted_output": "Poland"
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Mad Love",
+        "extracted_output": "Mad Love"
+    },
+    {
+        "question": "Which of these universities, Northwestern University or Johns Hopkins University, have a campus outside of the United States territories?",
+        "right_answer": "with other campuses located in Chicago and Doha, Qatar",
+        "model_output": "Johns Hopkins University",
+        "extracted_output": "Johns Hopkins University"
+    },
+    {
+        "question": "VIVA Media AG changed it's name in 2004. What does their new acronym stand for?",
+        "right_answer": "Gesellschaft mit beschränkter Haftung",
+        "model_output": "VIVA Media GmbH",
+        "extracted_output": "VIVA Media GmbH"
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Not provided.",
+        "extracted_output": "Not provided."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "Greek Revival",
+        "extracted_output": "Greek Revival"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "Steven Spielberg",
+        "extracted_output": "Steven Spielberg"
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" addresses ethical use of animals in entertainment.",
+        "extracted_output": "\"Forbidden Creatures\" focuses on exotic animal ownership and smuggling; \"No Animals Were Harmed\" addresses ethical use of animals in entertainment."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Benny",
+        "extracted_output": "Benny"
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Juliet",
+        "extracted_output": "Juliet"
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Sir Mac",
+        "extracted_output": "Sir Mac"
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Season 1",
+        "extracted_output": "Season 1"
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Unknown",
+        "extracted_output": "Unknown"
+    }
+]

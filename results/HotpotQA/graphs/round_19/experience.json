@@ -1,0 +1,7 @@
+{
+    "father node": 15,
+    "modification": "Modify the FORMAT_ANSWER_PROMPT to ensure more specific and concise answers, particularly for location-based questions. Add a new custom operator to refine location-based answers.",
+    "before": 0.6201203698262521,
+    "after": 0.5912117457705692,
+    "succeed": false
+}

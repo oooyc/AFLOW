@@ -1,0 +1,7 @@
+{
+    "father node": 2,
+    "modification": "Add a ScEnsemble operator to generate multiple answers and select the best one. Modify the Custom operator to focus on answer formatting and conciseness.",
+    "before": 0.38552912634523456,
+    "after": 0.6152391725921138,
+    "succeed": true
+}

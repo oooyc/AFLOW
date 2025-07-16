@@ -6,4 +6,4 @@ logs
 */__pycache__
 *.pyc
 /workspace
-*.json
+# *.json

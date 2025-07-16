@@ -1,0 +1,452 @@
+[
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "**Final Answer:** Both Eric Ambler and Carol Shields are best known for their professions as writers and authors.",
+        "extracted_output": "**Final Answer:** Both Eric Ambler and Carol Shields are best known for their professions as writers and authors."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Refined Answer: John Lanchester and Alan Dean Foster both share the profession of writer.",
+        "extracted_output": "Refined Answer: John Lanchester and Alan Dean Foster both share the profession of writer."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Refined Answer: The name of Hugh Fearnley-Whittingstall's sister is not provided in the context.",
+        "extracted_output": "Refined Answer: The name of Hugh Fearnley-Whittingstall's sister is not provided in the context."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is 'Sir Mac the Bear'.",
+        "extracted_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is 'Sir Mac the Bear'."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "**Final Answer:** Mad Love",
+        "extracted_output": "**Final Answer:** Mad Love"
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "**Refined Answer:** The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "**Refined Answer:** The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "**Refined Answer:**\n\n\"Forbidden Creatures\" focuses on the illegal trade and ownership of exotic animals, highlighting the lives of those involved in smuggling and the impact on animal welfare. In contrast, \"No Animals Were Harmed\" examines the ethical boundaries between using animals for entertainment and abusing them, exploring the perspectives of those in the entertainment industry regarding animal treatment. Thus, the key difference is that \"Forbidden Creatures\" addresses issues of smuggling and exotic pets, while \"No Animals Were Harmed\" centers on ethical considerations in entertainment.",
+        "extracted_output": "**Refined Answer:**\n\n\"Forbidden Creatures\" focuses on the illegal trade and ownership of exotic animals, highlighting the lives of those involved in smuggling and the impact on animal welfare. In contrast, \"No Animals Were Harmed\" examines the ethical boundaries between using animals for entertainment and abusing them, exploring the perspectives of those in the entertainment industry regarding animal treatment. Thus, the key difference is that \"Forbidden Creatures\" addresses issues of smuggling and exotic pets, while \"No Animals Were Harmed\" centers on ethical considerations in entertainment."
+    },
+    {
+        "question": "What distinction about his birth makes the contemporary of Bill Pollack unique as a winner of the Formula One World Drivers' Championship?",
+        "right_answer": "American-born",
+        "model_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other American champions like Mario Andretti, who was born in Italy.",
+        "extracted_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other American champions like Mario Andretti, who was born in Italy."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style.",
+        "extracted_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, the information is insufficient to determine when he left office.",
+        "extracted_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, the information is insufficient to determine when he left office."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Refined Answer: John Lanchester and Alan Dean Foster both share the profession of being novelists.",
+        "extracted_output": "Refined Answer: John Lanchester and Alan Dean Foster both share the profession of being novelists."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not provided in the context.",
+        "extracted_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not provided in the context."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Records.",
+        "extracted_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Records."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "**Refined Answer:**  \nEric Ambler and Carol Shields are both best known for their profession as writers.",
+        "extracted_output": "**Refined Answer:**  \nEric Ambler and Carol Shields are both best known for their profession as writers."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor.",
+        "extracted_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is designed in the Greek Revival style, which is a product of the earlier Neoclassical architecture.",
+        "extracted_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is designed in the Greek Revival style, which is a product of the earlier Neoclassical architecture."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "**Final Answer:** Steven Spielberg",
+        "extracted_output": "**Final Answer:** Steven Spielberg"
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books *Forbidden Creatures* and *No Animals Were Harmed* lies in their focus. *Forbidden Creatures* explores the illegal trade and ownership of exotic animals, highlighting the lives of those involved in smuggling and the implications for the animals themselves. In contrast, *No Animals Were Harmed* addresses the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television, examining the boundary between acceptable use and abuse.",
+        "extracted_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books *Forbidden Creatures* and *No Animals Were Harmed* lies in their focus. *Forbidden Creatures* explores the illegal trade and ownership of exotic animals, highlighting the lives of those involved in smuggling and the implications for the animals themselves. In contrast, *No Animals Were Harmed* addresses the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television, examining the boundary between acceptable use and abuse."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is the bear.",
+        "extracted_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is the bear."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided information. Therefore, it is not possible to determine when he left office.",
+        "extracted_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided information. Therefore, it is not possible to determine when he left office."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**."
+    },
+    {
+        "question": "What distinction about his birth makes the contemporary of Bill Pollack unique as a winner of the Formula One World Drivers' Championship?",
+        "right_answer": "American-born",
+        "model_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other champions like Mario Andretti, who, despite being an American citizen, was born in Italy.",
+        "extracted_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other champions like Mario Andretti, who, despite being an American citizen, was born in Italy."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Refined Answer: Both John Lanchester and Alan Dean Foster are novelists.",
+        "extracted_output": "Refined Answer: Both John Lanchester and Alan Dean Foster are novelists."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "Refined Answer: The subsidiary of the record company that released \"Love Incredible\" is Interscope Records.",
+        "extracted_output": "Refined Answer: The subsidiary of the record company that released \"Love Incredible\" is Interscope Records."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not provided in the context.",
+        "extracted_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not provided in the context."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "**Final Answer:** Eric Ambler and Carol Shields are both best known as writers or novelists.",
+        "extracted_output": "**Final Answer:** Eric Ambler and Carol Shields are both best known as writers or novelists."
+    },
+    {
+        "question": "What distinction about his birth makes the contemporary of Bill Pollack unique as a winner of the Formula One World Drivers' Championship?",
+        "right_answer": "American-born",
+        "model_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship.",
+        "extracted_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "**Final Answer:** The mascot of Mercer University, the oldest private university in Georgia, is Sir Mac the Bear.",
+        "extracted_output": "**Final Answer:** The mascot of Mercer University, the oldest private university in Georgia, is Sir Mac the Bear."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style.",
+        "extracted_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style."
+    },
+    {
+        "question": "Which season did the UCF Knights represent at an American metropolitan public research university in Orlando, Florida?",
+        "right_answer": "2010 NCAA Division",
+        "model_output": "**Refined Answer:**  \nThe UCF Knights represent the University of Central Florida in every season they compete. The most recent season mentioned in the context is 2015.",
+        "extracted_output": "**Refined Answer:**  \nThe UCF Knights represent the University of Central Florida in every season they compete. The most recent season mentioned in the context is 2015."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "**Final Answer:** Jake Zyrus",
+        "extracted_output": "**Final Answer:** Jake Zyrus"
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "**Refined Answer:**\n\n\"Forbidden Creatures\" focuses on the illegal trade and ownership of exotic animals, highlighting the implications of animal smuggling. In contrast, \"No Animals Were Harmed\" examines the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television. The key difference lies in the former's emphasis on criminal activities related to exotic animals, while the latter addresses the ethics of animal use in media.",
+        "extracted_output": "**Refined Answer:**\n\n\"Forbidden Creatures\" focuses on the illegal trade and ownership of exotic animals, highlighting the implications of animal smuggling. In contrast, \"No Animals Were Harmed\" examines the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television. The key difference lies in the former's emphasis on criminal activities related to exotic animals, while the latter addresses the ethics of animal use in media."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "**Refined Answer:** The executive producer of the film with a score composed by Jerry Goldsmith is Francis Ford Coppola, who was the executive producer of *Lionheart*.",
+        "extracted_output": "**Refined Answer:** The executive producer of the film with a score composed by Jerry Goldsmith is Francis Ford Coppola, who was the executive producer of *Lionheart*."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, I cannot provide a definitive date for when he left office.",
+        "extracted_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, I cannot provide a definitive date for when he left office."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is the bear.",
+        "extracted_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is the bear."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Records.",
+        "extracted_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Records."
+    },
+    {
+        "question": "What distinction about his birth makes the contemporary of Bill Pollack unique as a winner of the Formula One World Drivers' Championship?",
+        "right_answer": "American-born",
+        "model_output": "**Refined Answer:**\n\nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship.",
+        "extracted_output": "**Refined Answer:**\n\nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor.",
+        "extracted_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not mentioned in the provided context.",
+        "extracted_output": "Refined Answer: The name of Hugh Christopher Edmund Fearnley-Whittingstall's sister is not mentioned in the provided context."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "**Final Answer:** Jake Zyrus",
+        "extracted_output": "**Final Answer:** Jake Zyrus"
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "The Battle of Cambrai took place during a series of offensives that ended on what date?",
+        "right_answer": "11 November 1918",
+        "model_output": "**Refined Answer:** The Battle of Cambrai took place during a series of offensives that ended on December 7, 1917.",
+        "extracted_output": "**Refined Answer:** The Battle of Cambrai took place during a series of offensives that ended on December 7, 1917."
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books \"Forbidden Creatures\" and \"No Animals Were Harmed\" lies in their focus. \"Forbidden Creatures\" delves into the world of animal smuggling and the exotic pet trade, highlighting the lives of those involved in these illegal activities. In contrast, \"No Animals Were Harmed\" addresses the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television, exploring the boundary between acceptable use and abuse.",
+        "extracted_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books \"Forbidden Creatures\" and \"No Animals Were Harmed\" lies in their focus. \"Forbidden Creatures\" delves into the world of animal smuggling and the exotic pet trade, highlighting the lives of those involved in these illegal activities. In contrast, \"No Animals Were Harmed\" addresses the ethical considerations surrounding the treatment of animals in entertainment, particularly in film and television, exploring the boundary between acceptable use and abuse."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "Refined Answer: \n\nJohn Lanchester and Alan Dean Foster both share the profession of writer.",
+        "extracted_output": "Refined Answer: \n\nJohn Lanchester and Alan Dean Foster both share the profession of writer."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "**Final Answer:** Eric Ambler and Carol Shields are both best known as authors.",
+        "extracted_output": "**Final Answer:** Eric Ambler and Carol Shields are both best known as authors."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided information. Therefore, it is not possible to determine when he left office.",
+        "extracted_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided information. Therefore, it is not possible to determine when he left office."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style.",
+        "extracted_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical style."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "**Refined Answer:** The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "**Refined Answer:** The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "Refined Answer: The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "Refined Answer: The name of Hugh Fearnley-Whittingstall's sister is not provided in the context.",
+        "extracted_output": "Refined Answer: The name of Hugh Fearnley-Whittingstall's sister is not provided in the context."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "**Refined Answer:**  \nEric Ambler and Carol Shields are both best known for their profession as writers.",
+        "extracted_output": "**Refined Answer:**  \nEric Ambler and Carol Shields are both best known for their profession as writers."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "Refined Answer: The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "**Refined Answer:**  \nBoth John Lanchester and Alan Dean Foster are novelists.",
+        "extracted_output": "**Refined Answer:**  \nBoth John Lanchester and Alan Dean Foster are novelists."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor.",
+        "extracted_output": "**Final Answer:** Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "Refined Answer: The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**.",
+        "extracted_output": "Refined Answer: The mononym of the Filipino singer who released the album \"My Inspiration\" is **Jake**."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Geffen A&M Records.",
+        "extracted_output": "**Refined Answer:** The subsidiary of the record company that released \"Love Incredible\" is Interscope Geffen A&M Records."
+    },
+    {
+        "question": "What distinction about his birth makes the contemporary of Bill Pollack unique as a winner of the Formula One World Drivers' Championship?",
+        "right_answer": "American-born",
+        "model_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other champions like Mario Andretti, who, despite being an American citizen, was born in Italy.",
+        "extracted_output": "**Refined Answer:**  \nPhil Hill is unique as the only driver born in the United States to win the Formula One World Drivers' Championship, distinguishing him from other champions like Mario Andretti, who, despite being an American citizen, was born in Italy."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, I cannot provide a definitive date for when he left office.",
+        "extracted_output": "Said Fazal Akbar was appointed as the first Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001. However, the specific end date of his governorship is not mentioned in the provided context. Therefore, I cannot provide a definitive date for when he left office."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "**Final Answer:** Francis Ford Coppola is the executive producer of the film \"Lionheart,\" which has a score composed by Jerry Goldsmith.",
+        "extracted_output": "**Final Answer:** Francis Ford Coppola is the executive producer of the film \"Lionheart,\" which has a score composed by Jerry Goldsmith."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "**Refined Answer:** Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is a bear named 'Sir Mac.'",
+        "extracted_output": "Refined Answer: The mascot of Mercer University, the oldest private university in Georgia, is a bear named 'Sir Mac.'"
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical architecture.",
+        "extracted_output": "**Refined Answer:**  \nThe rectory of St. John of the Cross Episcopal Church is built in the Greek Revival style, which is a product of the earlier Neoclassical architecture."
+    },
+    {
+        "question": "How do the Peter Laufer books Forbidden Creatures and No Animals Were Harmed differ in their focus on animals?",
+        "right_answer": "his own opinions changed",
+        "model_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books *Forbidden Creatures* and *No Animals Were Harmed* lies in their focus. *Forbidden Creatures* explores the illegal trade and smuggling of exotic animals, highlighting the lives of those involved and the implications for the animals. In contrast, *No Animals Were Harmed* examines the ethical boundaries surrounding the use of animals in entertainment, discussing the treatment of animals and the perspectives of various stakeholders regarding animal welfare in this context.",
+        "extracted_output": "**Refined Answer:**\n\nThe key difference between Peter Laufer's books *Forbidden Creatures* and *No Animals Were Harmed* lies in their focus. *Forbidden Creatures* explores the illegal trade and smuggling of exotic animals, highlighting the lives of those involved and the implications for the animals. In contrast, *No Animals Were Harmed* examines the ethical boundaries surrounding the use of animals in entertainment, discussing the treatment of animals and the perspectives of various stakeholders regarding animal welfare in this context."
+    }
+]

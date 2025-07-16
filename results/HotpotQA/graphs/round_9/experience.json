@@ -1,0 +1,7 @@
+{
+    "father node": 5,
+    "modification": "Modify the FORMAT_ANSWER_PROMPT to include specific instructions for handling different types of questions, especially those requiring comparisons or explanations. This will help address the issue seen in the third log where the answer was too verbose.",
+    "before": 0.6106678125795773,
+    "after": 0.5416263095804618,
+    "succeed": false
+}

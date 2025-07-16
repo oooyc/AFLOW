@@ -1,0 +1,7 @@
+{
+    "father node": 3,
+    "modification": "Add a review step using the Custom operator to check and potentially refine the final answer before returning it. This can help improve accuracy and ensure the answer format meets the requirements.",
+    "before": 0.7404901960784314,
+    "after": 0.7094965297695995,
+    "succeed": false
+}

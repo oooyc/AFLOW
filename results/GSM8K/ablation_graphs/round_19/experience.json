@@ -1,0 +1,7 @@
+{
+    "father node": 1,
+    "modification": "Modify the Custom operator to include a specific instruction for answer extraction and formatting.",
+    "before": 0.778,
+    "after": 0.866,
+    "succeed": true
+}

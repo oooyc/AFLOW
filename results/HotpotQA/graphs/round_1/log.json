@@ -1,0 +1,476 @@
+[
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "John Lanchester and Alan Dean Foster both have professions as novelists.",
+        "extracted_output": "John Lanchester and Alan Dean Foster both have professions as novelists."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear.",
+        "extracted_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita.",
+        "extracted_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada.",
+        "extracted_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece.",
+        "extracted_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece."
+    },
+    {
+        "question": "Are Hungry Hungry Hippos and Parcheesi both published by Parker Brothers?",
+        "right_answer": "no",
+        "model_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers.",
+        "extracted_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers."
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick.",
+        "extracted_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001, but the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until.",
+        "extracted_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001, but the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\"",
+        "extracted_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\""
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information.",
+        "extracted_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group.",
+        "extracted_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group."
+    },
+    {
+        "question": "Are Hungry Hungry Hippos and Parcheesi both published by Parker Brothers?",
+        "right_answer": "no",
+        "model_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers.",
+        "extracted_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear.",
+        "extracted_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Eric Ambler and Carol Shields are both best known for their profession as authors.",
+        "extracted_output": "Eric Ambler and Carol Shields are both best known for their profession as authors."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group.",
+        "extracted_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita.",
+        "extracted_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in England, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada.",
+        "extracted_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in England, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick.",
+        "extracted_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information.",
+        "extracted_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. The specific end date of his governorship is not provided in the context, so it is unclear until what day he served.",
+        "extracted_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. The specific end date of his governorship is not provided in the context, so it is unclear until what day he served."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece.",
+        "extracted_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "John Lanchester and Alan Dean Foster both have professions as writers.",
+        "extracted_output": "John Lanchester and Alan Dean Foster both have professions as writers."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear.",
+        "extracted_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear."
+    },
+    {
+        "question": "Are Hungry Hungry Hippos and Parcheesi both published by Parker Brothers?",
+        "right_answer": "no",
+        "model_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers.",
+        "extracted_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group.",
+        "extracted_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "John Lanchester and Alan Dean Foster both have professions as writers.",
+        "extracted_output": "John Lanchester and Alan Dean Foster both have professions as writers."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band, and Pierre Bouvier is a Canadian singer, but he is associated with the band Simple Plan, which is also from Canada. Therefore, while they are not from the same country, they are both from countries in the broader region of North America and the UK.",
+        "extracted_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band, and Pierre Bouvier is a Canadian singer, but he is associated with the band Simple Plan, which is also from Canada. Therefore, while they are not from the same country, they are both from countries in the broader region of North America and the UK."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita.",
+        "extracted_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information.",
+        "extracted_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. However, the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until.",
+        "extracted_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. However, the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until."
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick.",
+        "extracted_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his influential thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\"",
+        "extracted_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his influential thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\""
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece.",
+        "extracted_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus."
+    },
+    {
+        "question": "Are Hungry Hungry Hippos and Parcheesi both published by Parker Brothers?",
+        "right_answer": "no",
+        "model_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers.",
+        "extracted_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada.",
+        "extracted_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada."
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick.",
+        "extracted_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear.",
+        "extracted_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. The specific end date of his governorship is not provided in the context, so it is unclear until what day he served.",
+        "extracted_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan by President Hamid Karzai after the fall of the Taliban in 2001. The specific end date of his governorship is not provided in the context, so it is unclear until what day he served."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "John Lanchester and Alan Dean Foster both have professions as writers.",
+        "extracted_output": "John Lanchester and Alan Dean Foster both have professions as writers."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group.",
+        "extracted_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group."
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information.",
+        "extracted_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his influential thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\"",
+        "extracted_output": "Eric Ambler and Carol Shields are both best known for their profession as authors. Eric Ambler is known for his influential thrillers and spy novels, while Carol Shields is recognized for her novels and short stories, particularly her Pulitzer Prize-winning work \"The Stone Diaries.\""
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita.",
+        "extracted_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece.",
+        "extracted_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece."
+    },
+    {
+        "question": "What is the subsidiary of the record company who released \"Love Incredible?\"",
+        "right_answer": "Vivendi S.A.",
+        "model_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group.",
+        "extracted_output": "The song \"Love Incredible\" by Cashmere Cat, featuring Camila Cabello, was released through Interscope Records, which is a subsidiary of Universal Music Group."
+    },
+    {
+        "question": "Where does Śivarāma Swami conduct courses on Vaishnava Theology?",
+        "right_answer": "in the village of Aldenham",
+        "model_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita.",
+        "extracted_output": "Śivarāma Swami conducts courses on Vaishnava Theology at Bhaktivedanta Manor, where he teaches his own commentaries to Venu Gita."
+    },
+    {
+        "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+        "right_answer": "Ronald Shusett",
+        "model_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg.",
+        "extracted_output": "The executive producer of the film \"Innerspace,\" which has a score composed by Jerry Goldsmith, is Steven Spielberg."
+    },
+    {
+        "question": "Eric Ambler and Carol Shields are both best Known for what profession?",
+        "right_answer": "author",
+        "model_output": "Eric Ambler and Carol Shields are both best known for their professions as authors and novelists.",
+        "extracted_output": "Eric Ambler and Carol Shields are both best known for their professions as authors and novelists."
+    },
+    {
+        "question": "What is the mononym of the Fillipino singer that released the album \"My Inspiration\"?",
+        "right_answer": "Charice",
+        "model_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus.",
+        "extracted_output": "The mononym of the Filipino singer who released the album \"My Inspiration\" is Jake Zyrus."
+    },
+    {
+        "question": "Are Hungry Hungry Hippos and Parcheesi both published by Parker Brothers?",
+        "right_answer": "no",
+        "model_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers.",
+        "extracted_output": "Yes, both Hungry Hungry Hippos and Parcheesi were published by Parker Brothers."
+    },
+    {
+        "question": "What is the given name of the character depicted as Juliet Hulme in Heavenly Creatures?",
+        "right_answer": "Anne Perry",
+        "model_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet.",
+        "extracted_output": "The given name of the character depicted as Juliet Hulme in \"Heavenly Creatures\" is Juliet."
+    },
+    {
+        "question": "What is the first name of Jack Benny Binion's father?",
+        "right_answer": "Lester",
+        "model_output": "The first name of Jack Benny Binion's father is Benny.",
+        "extracted_output": "The first name of Jack Benny Binion's father is Benny."
+    },
+    {
+        "question": "Said Fazal Akbar was appointed Governor by the President of Afghanistan that served until what day?",
+        "right_answer": "29 September 2014",
+        "model_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001, but the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until.",
+        "extracted_output": "Said Fazal Akbar was appointed Governor of Kunar province in Afghanistan after the fall of the Taliban in 2001, but the specific end date of his governorship is not provided in the context. Therefore, I cannot determine the exact day he served until."
+    },
+    {
+        "question": "Grown-Ups starred the actor who was best known for which role on  \"'Allo 'Allo!\"?",
+        "right_answer": "Captain Hans Geering",
+        "model_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick.",
+        "extracted_output": "Grown-Ups starred Lesley Manville, who is not primarily known for a role on \"'Allo 'Allo!\". However, the actor best known for a role on \"'Allo 'Allo!\" is Richard Gibson, who played Herr Otto Flick."
+    },
+    {
+        "question": "What is the mascot of the oldest private university in Georgia?",
+        "right_answer": "The Bears",
+        "model_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear.",
+        "extracted_output": "The mascot of Mercer University, the oldest private university in Georgia, is the Bear."
+    },
+    {
+        "question": " Keith Konrad Slettedahl appeared on which season of \"How I Met Your Mother\"?",
+        "right_answer": "first",
+        "model_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\"",
+        "extracted_output": "Keith Konrad Slettedahl appeared in Season 1 of \"How I Met Your Mother.\""
+    },
+    {
+        "question": "The English chef known for his back-to-basics philosphy has a sister named what?",
+        "right_answer": "Sophy",
+        "model_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information.",
+        "extracted_output": "The English chef known for his back-to-basics philosophy is Hugh Fearnley-Whittingstall. However, the provided context does not mention the name of his sister. Therefore, I cannot provide an answer to that question based on the given information."
+    },
+    {
+        "question": "What profession does John Lanchester and Alan Dean Foster have in common?",
+        "right_answer": "novelist",
+        "model_output": "John Lanchester and Alan Dean Foster both have professions as writers.",
+        "extracted_output": "John Lanchester and Alan Dean Foster both have professions as writers."
+    },
+    {
+        "question": "Are both Coldplay and Pierre Bouvier from the same country?",
+        "right_answer": "no",
+        "model_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada.",
+        "extracted_output": "Yes, both Coldplay and Pierre Bouvier are from the same country, which is the United Kingdom. Coldplay is a British rock band formed in London, while Pierre Bouvier, the lead singer of Simple Plan, is Canadian. However, they are not from the same country; Coldplay is from the UK, and Pierre Bouvier is from Canada."
+    },
+    {
+        "question": "St. John of the Cross Episcopal Church has a rectory that was in a style that was a product of what earlier style?",
+        "right_answer": "Hellenism",
+        "model_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece.",
+        "extracted_output": "The rectory of St. John of the Cross Episcopal Church, built in 1830, is in the Greek Revival style. The Greek Revival was an architectural movement that emerged in the late 18th and early 19th centuries and is considered a product of Neoclassical architecture, which was influenced by the classical architecture of ancient Greece."
+    }
+]

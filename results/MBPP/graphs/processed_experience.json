@@ -1,0 +1,102 @@
+{
+    "2": {
+        "score": 0.8348837209302327,
+        "success": {},
+        "failure": {
+            "10": {
+                "modification": "Add a ScEnsemble operator to generate multiple solutions and select the best one before testing. This will help improve the quality of the initial solution before testing.",
+                "score": 0.8302325581395349
+            },
+            "17": {
+                "modification": "Add a ScEnsemble operator to generate multiple solutions and select the best one before testing. This will help improve the quality of the initial solution before testing.",
+                "score": 0.8325581395348836
+            },
+            "7": {
+                "modification": "Add a review step using the Custom operator to analyze and improve the solution before testing. This step will help catch potential errors and optimize the code before running tests, potentially reducing the need for fixes after failed tests.",
+                "score": 0.5651162790697675
+            },
+            "14": {
+                "modification": "Add a ScEnsemble operator to generate multiple solutions and select the best one before testing. This will help improve the quality of the initial solution before testing.",
+                "score": 0.8325581395348838
+            },
+            "12": {
+                "modification": "Add a Custom operator to review and improve the initial solution before testing, potentially reducing the need for fixes after failed tests.",
+                "score": 0.5744186046511628
+            },
+            "4": {
+                "modification": "Add a new Custom operator to analyze and improve the solution before testing. This step will help catch potential errors and optimize the code before running tests, potentially reducing the need for fixes after failed tests.",
+                "score": 0.5906976744186047
+            },
+            "5": {
+                "modification": "Add a ScEnsemble operator to generate multiple solutions and select the best one before testing.",
+                "score": 0.8209302325581396
+            }
+        }
+    },
+    "14": {
+        "score": 0.8325581395348838,
+        "success": {},
+        "failure": {
+            "19": {
+                "modification": "Add a review step using the Custom operator to evaluate and improve the best solution before testing.",
+                "score": 0.5930232558139534
+            },
+            "18": {
+                "modification": "Add a new Custom operator to generate test cases before the final test step. This will help ensure the solution is tested more thoroughly before submission.",
+                "score": 0.7930232558139536
+            },
+            "16": {
+                "modification": "Add a code review step using the Custom operator to evaluate and improve the best solution before testing.",
+                "score": 0.786046511627907
+            }
+        }
+    },
+    "10": {
+        "score": 0.8302325581395349,
+        "success": {
+            "15": {
+                "modification": "Add a CustomCodeGenerate step to generate multiple solutions, then use ScEnsemble to select the best one before testing. This approach leverages the ensemble technique to potentially improve the quality of the generated solution.",
+                "score": 0.841860465116279
+            }
+        },
+        "failure": {
+            "11": {
+                "modification": "Add a review step using the Custom operator to evaluate and improve the best solution before testing.",
+                "score": 0.6465116279069768
+            }
+        }
+    },
+    "5": {
+        "score": 0.8209302325581396,
+        "success": {},
+        "failure": {
+            "8": {
+                "modification": "Add a new Custom operator to analyze the problem and generate test cases before code generation. This will help ensure that the generated code addresses all aspects of the problem and can handle various scenarios.",
+                "score": 0.8186046511627907
+            },
+            "6": {
+                "modification": "Add a code review step using the Custom operator to enhance code quality and catch potential issues before testing.",
+                "score": 0.7534883720930232
+            },
+            "13": {
+                "modification": "Add a new Custom operator to generate test cases before code generation. This will help ensure that the generated code addresses all aspects of the problem and can handle various scenarios.",
+                "score": 0.8116279069767443
+            }
+        }
+    },
+    "1": {
+        "score": 0.727906976744186,
+        "success": {
+            "2": {
+                "modification": "Add a Test operator to check and potentially modify the generated solution before returning it. This will help improve the accuracy of the final output.",
+                "score": 0.8348837209302327
+            }
+        },
+        "failure": {
+            "3": {
+                "modification": "Add a Test operator to check and potentially modify the generated solution before returning it. This will help improve the accuracy of the final output.",
+                "score": 0.7232558139534884
+            }
+        }
+    }
+}
