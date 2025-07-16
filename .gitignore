@@ -2,7 +2,7 @@
 config/config2.yaml
 logs
 data/datasets
-optimized
+# optimized
 */__pycache__
 *.pyc
 /workspace
