@@ -1,7 +1,7 @@
 .DS_Store
 config/config2.yaml
 logs
-data/datasets
+# data/datasets
 # optimized
 */__pycache__
 *.pyc
