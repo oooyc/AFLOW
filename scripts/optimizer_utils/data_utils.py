@@ -25,6 +25,8 @@ class DataUtils:
                     return []
         return []
 
+    # results.json文件中存储了每一轮的结果，看起来每一轮都会执行5次
+
     def get_top_rounds(self, sample: int, path=None, mode="Graph"):
         self._load_scores(path, mode)
         unique_rounds = set()

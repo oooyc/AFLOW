@@ -6,7 +6,7 @@
 import argparse
 from typing import Dict, List
 
-from data.download_data import download
+# from data.download_data import download
 from scripts.optimizer import Optimizer
 from scripts.async_llm import LLMsConfig
 
@@ -64,7 +64,7 @@ def parse_args():
     parser.add_argument(
         "--optimized_path",
         type=str,
-        default="workspace",
+        default="optimized",
         help="Optimized result save path",
     )
     parser.add_argument("--initial_round", type=int, default=1, help="Initial round")
@@ -80,13 +80,13 @@ def parse_args():
     parser.add_argument(
         "--opt_model_name",
         type=str,
-        default="claude-3-5-sonnet-20241022",
+        default="claude-3-7-sonnet-20250219",
         help="Specifies the name of the model used for optimization tasks.",
     )
     parser.add_argument(
         "--exec_model_name",
         type=str,
-        default="gpt-4o-mini",
+        default="claude-3-7-sonnet-20250219",
         help="Specifies the name of the model used for execution tasks.",
     )
     return parser.parse_args()
@@ -112,7 +112,7 @@ if __name__ == "__main__":
             "Please add it to the configuration file or specify a valid model using the --exec_model_name flag. "
         )
 
-    download(["datasets"], force_download=args.if_force_download) # remove download initial_rounds in new version.
+    # download(["datasets"], force_download=args.if_force_download) # remove download initial_rounds in new version.
 
     optimizer = Optimizer(
         dataset=config.dataset,

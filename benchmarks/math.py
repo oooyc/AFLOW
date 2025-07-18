@@ -130,6 +130,8 @@ class MATHBenchmark(BaseBenchmark):
             return input_text, output, expected_output, uni_score, cost
 
         except Exception as e:
+
+            # 在这里run我的workflow，看能不能在这里添加个计数器记录我执行失败的次数
             logger.info(f"Maximum retries reached. Skipping this sample. Error: {e}")
             return input_text, str(e), expected_output, 0.0, 0.0
 

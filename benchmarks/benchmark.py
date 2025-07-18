@@ -94,7 +94,7 @@ class BaseBenchmark(ABC):
         tasks = [sem_evaluate(problem) for problem in data]
         return await tqdm_asyncio.gather(*tasks, desc=f"Evaluating {self.name} problems", total=len(data))
 
-    async def run_evaluation(self, agent: Callable, va_list: List[int], max_concurrent_tasks: int = 50):
+    async def run_evaluation(self, agent: Callable, va_list: List[int], max_concurrent_tasks: int = 10):
         data = await self.load_data(va_list)
         results = await self.evaluate_all_problems(data, agent, max_concurrent_tasks)
         columns = self.get_result_columns()

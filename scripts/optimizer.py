@@ -63,10 +63,15 @@ class Optimizer:
         self.validation_rounds = validation_rounds
 
         self.graph_utils = GraphUtils(self.root_path)
+        # 加载graphs、写入graphs，组装优化prompt，实现优化，取出各个tag的内容做一个写入
         self.data_utils = DataUtils(self.root_path)
+        # 加载results.json，维护一个top score数组，实现graph的select
         self.experience_utils = ExperienceUtils(self.root_path)
+        # load每一个round的experience进行处理，对于选中轮的experience会做一个format，另外还会check modification是否重复
         self.evaluation_utils = EvaluationUtils(self.root_path)
+        # 调用evaluator进行评估
         self.convergence_utils = ConvergenceUtils(self.root_path)
+        # 收敛性评估，比较复杂，综合考虑这一轮topk和上一轮topk得分的workflow自身的不稳定性，当这一轮topk的平均得分与上一轮topk平均得分的差值小于两者综合的不稳定性，就认为收敛了
 
     def optimize(self, mode: OptimizerType = "Graph"):
         if mode == "Test":
@@ -84,6 +89,7 @@ class Optimizer:
             retry_count = 0
             max_retries = 1
 
+            # 这里的retry是针对生成的retry
             while retry_count < max_retries:
                 try:
                     score = loop.run_until_complete(self._optimize_graph())
@@ -136,11 +142,12 @@ class Optimizer:
             sample = self.data_utils.select_round(top_rounds)
 
             prompt, graph_load = self.graph_utils.read_graph_files(sample["round"], graph_path)
+            # 读prompt.py和graph.py
             graph = self.graph_utils.extract_solve_graph(graph_load)
 
             processed_experience = self.experience_utils.load_experience()
             experience = self.experience_utils.format_experience(processed_experience, sample["round"])
-
+            # 包含着个节点所有子节点的成功、失败经验
             operator_description = self.graph_utils.load_operators_description(self.operators)
 
             # 如何使用operator？operator_description!这里的operator_description其实就是operator.json里的内容
@@ -192,10 +199,12 @@ class Optimizer:
         experience = self.experience_utils.create_experience_data(sample, response["modification"])
 
         self.graph = self.graph_utils.load_graph(self.round + 1, graph_path)
+        # load进来准备做评估了
 
         logger.info(directory)
 
         avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=False)
+        # 跑5次取平均，如果执行失败分数就是0
 
         self.experience_utils.update_experience(directory, experience, avg_score)
 

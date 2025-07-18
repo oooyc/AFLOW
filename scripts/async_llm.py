@@ -5,16 +5,19 @@
 
 from openai import AsyncOpenAI
 from scripts.formatter import BaseFormatter, FormatError
-
+import httpx
 import yaml
 from pathlib import Path
 from typing import Dict, Optional, Any
+from anthropic import AsyncAnthropic
+
 
 class LLMConfig:
     def __init__(self, config: dict):
         self.model = config.get("model", "gpt-4o-mini")
         self.temperature = config.get("temperature", 1)
         self.key = config.get("key", None)
+        self.proxy_url = config.get("proxy_url", "http://127.0.0.1:10887")
         self.base_url = config.get("base_url", "https://oneapi.deepwisdom.ai/v1")
         self.top_p = config.get("top_p", 1)
 
@@ -63,6 +66,7 @@ class LLMsConfig:
     def get(self, llm_name: str) -> LLMConfig:
         """Get the configuration for a specific LLM by name"""
         if llm_name not in self.configs:
+            print(self.configs)
             raise ValueError(f"Configuration for {llm_name} not found")
         
         config = self.configs[llm_name]
@@ -73,6 +77,7 @@ class LLMsConfig:
             "temperature": config.get("temperature", 1),
             "key": config.get("api_key"),  # Map api_key to key
             "base_url": config.get("base_url", "https://oneapi.deepwisdom.ai/v1"),
+            "proxy_url": config.get("proxy_url", "http://127.0.0.1:10887"),
             "top_p": config.get("top_p", 1)  # Add top_p parameter
         }
         
@@ -95,6 +100,7 @@ class ModelPricing:
         "gpt-4o-mini": {"input": 0.00015, "output": 0.0006},
         "gpt-4o-mini-2024-07-18": {"input": 0.00015, "output": 0.0006},
         "claude-3-5-sonnet": {"input": 0.003, "output": 0.015},
+        "claude-3-7-sonnet-20250219": {"input": 0.003, "output": 0.015}
     }
     
     @classmethod
@@ -175,30 +181,78 @@ class AsyncLLM:
         
         # At this point, config should be an LLMConfig instance
         self.config = config
-        self.aclient = AsyncOpenAI(api_key=self.config.key, base_url=self.config.base_url)
+        http_client = httpx.AsyncClient(proxy=self.config.proxy_url) if self.config.proxy_url else None
+        self.aclient = AsyncAnthropic(api_key=self.config.key, base_url=self.config.base_url, http_client=http_client)
+        # self.aclient = AsyncOpenAI(api_key=self.config.key, base_url=self.config.base_url, http_client=http_client)
         self.sys_msg = system_msg
         self.usage_tracker = TokenUsageTracker()
         
+    # async def __call__(self, prompt):
+    #     message = []
+    #     if self.sys_msg is not None:
+    #         message.append({
+    #             "content": self.sys_msg,
+    #             "role": "system"
+    #         })
+
+    #     message.append({"role": "user", "content": prompt})
+
+    #     response = await self.aclient.chat.completions.create(
+    #         model=self.config.model,
+    #         messages=message,
+    #         temperature=self.config.temperature,
+    #         top_p = self.config.top_p,
+    #     )
+
+    #     # Extract token usage from response
+    #     input_tokens = response.usage.prompt_tokens
+    #     output_tokens = response.usage.completion_tokens
+        
+    #     # Track token usage and calculate cost
+    #     usage_record = self.usage_tracker.add_usage(
+    #         self.config.model,
+    #         input_tokens,
+    #         output_tokens
+    #     )
+        
+    #     ret = response.choices[0].message.content
+    #     print(ret)
+        
+    #     # You can optionally print token usage information
+    #     print(f"Token usage: {input_tokens} input + {output_tokens} output = {input_tokens + output_tokens} total")
+    #     print(f"Cost: ${usage_record['total_cost']:.6f} (${usage_record['input_cost']:.6f} for input, ${usage_record['output_cost']:.6f} for output)")
+        
+    #     return ret
+
     async def __call__(self, prompt):
+        # 1. 为 Anthropic API 准备参数
+        # 将系统消息和用户消息分开
         message = []
         if self.sys_msg is not None:
             message.append({
                 "content": self.sys_msg,
                 "role": "system"
             })
+        user_messages = {"role": "user", "content": prompt}
+        message.append(user_messages)
 
-        message.append({"role": "user", "content": prompt})
-
-        response = await self.aclient.chat.completions.create(
+        # 2. 使用 Anthropic 的正确方法和参数进行调用
+        response = await self.aclient.messages.create(
             model=self.config.model,
-            messages=message,
+            # system=system_prompt,            # <-- system 消息作为独立参数
+            messages=message,          # <-- messages 列表只包含用户消息
+            max_tokens=4096,                 # <-- Anthropic API 的必需参数
             temperature=self.config.temperature,
-            top_p = self.config.top_p,
+            top_p=self.config.top_p,
         )
 
+        # 3. 提取和处理响应（这部分与之前基本相同）
         # Extract token usage from response
-        input_tokens = response.usage.prompt_tokens
-        output_tokens = response.usage.completion_tokens
+        # input_tokens = response.usage.prompt_tokens
+        # output_tokens = response.usage.completion_tokens
+
+        input_tokens = response.usage.input_tokens
+        output_tokens = response.usage.output_tokens
         
         # Track token usage and calculate cost
         usage_record = self.usage_tracker.add_usage(
@@ -207,7 +261,8 @@ class AsyncLLM:
             output_tokens
         )
         
-        ret = response.choices[0].message.content
+        # Anthropic 的响应内容在 response.content[0].text
+        ret = response.content[0].text
         print(ret)
         
         # You can optionally print token usage information

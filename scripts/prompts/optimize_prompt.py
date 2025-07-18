@@ -27,7 +27,7 @@ Below are the logs of some results with the aforementioned Graph that performed 
 {log}
 
 First, provide optimization ideas. **Only one detail point can be modified at a time**, and no more than 5 lines of code may be changed per modification—extensive modifications are strictly prohibited to maintain project focus!
-When introducing new functionalities in the graph, please make sure to import the necessary libraries or modules yourself, except for operator, prompt_custom, create_llm_instance, and CostManage, which have already been automatically imported.
+When introducing new functionalities in the graph, please make sure to import the necessary libraries or modules yourself, except for operator, prompt_custom, and create_llm_instance, which have already been automatically imported.
 **Under no circumstances should Graph output None for any field.**
 Use custom methods to restrict your output format, rather than using code (outside of the code, the system will extract answers based on certain rules and score them).
 It is very important to format the Graph output answers, you can refer to the standard answer format in the log.

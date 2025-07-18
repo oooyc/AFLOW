@@ -71,6 +71,8 @@ class GraphUtils:
             desc = matched_data["description"]
             interface = matched_data["interface"]
             return f"{id}. {operator_name}: {desc}, with interface {interface})."
+        
+    # 这个operator description挺重要的，会format到WORKFLOW_INPUT中。
 
     def create_graph_optimize_prompt(
         self,
@@ -93,6 +95,8 @@ class GraphUtils:
         )
         graph_system = WORKFLOW_OPTIMIZE_PROMPT.format(type=type)
         return graph_input + WORKFLOW_CUSTOM_USE + graph_system
+    
+    # 例子+prompt_custom解释+优化prompt
 
     async def get_graph_optimize_response(self, graph_optimize_node):
         max_retries = 5
@@ -123,3 +127,5 @@ class GraphUtils:
 
         with open(os.path.join(directory, "__init__.py"), "w", encoding="utf-8") as file:
             file.write("")
+
+        # 从llm回答的tag中提取
