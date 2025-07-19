@@ -5,5 +5,5 @@ logs
 # optimized
 */__pycache__
 *.pyc
-/workspace
+# /workspace
 # *.json
