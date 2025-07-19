@@ -24,7 +24,7 @@ class Operator:
 
     async def _fill_node(self, op_class, prompt, mode=None, **extra_kwargs):
         # Create appropriate formatter based on mode
-        formatter = self._create_formatter(op_class, mode)
+        formatter = self._create_formatter(op_class, mode, **extra_kwargs)
         
         try:
             # Use the formatter with AsyncLLM
@@ -43,12 +43,12 @@ class Operator:
             print(f"Format error in {self.name}: {str(e)}")
             return {"error": str(e)}
     
-    def _create_formatter(self, op_class, mode=None) -> Optional[BaseFormatter]:
+    def _create_formatter(self, op_class, mode=None, **extra_kwargs) -> Optional[BaseFormatter]:
         """Create appropriate formatter based on operation class and mode"""
         if mode == "xml_fill":
             return XmlFormatter.from_model(op_class)
         elif mode == "code_fill":
-            return CodeFormatter()
+            return CodeFormatter(**extra_kwargs)
         elif mode == "single_fill":
             return TextFormatter()
         else:
@@ -143,7 +143,7 @@ class Programmer(Operator):
             code_response = await self.code_generate(problem, analysis, feedback, mode="code_fill")
             code = code_response.get("code")
             if not code:
-                return {"code": code, "output": "No code generated"}
+                return {"code": code, "response": "No code generated"}
             status, output = await self.exec_code(code)
             if status == "Success":
                 return {"code": code, "output": output}
@@ -167,7 +167,7 @@ class ScEnsemble(Operator):
     def __init__(self, llm: AsyncLLM, name: str = "ScEnsemble"):
         super().__init__(llm, name)
 
-    async def __call__(self, solutions: List[str], problem: str):
+    async def __call__(self, solutions: List[str], problem: str, upstream: bool = False):
         answer_mapping = {}
         solution_text = ""
         for index, solution in enumerate(solutions):

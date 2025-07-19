@@ -249,7 +249,7 @@ class Optimizer:
             return None
 
     async def test(self):
-        rounds = [1]  # You can choose the rounds you want to test here.
+        rounds = [2]  # You can choose the rounds you want to test here.
         data = []
 
         graph_path = f"{self.root_path}/workflows_test"

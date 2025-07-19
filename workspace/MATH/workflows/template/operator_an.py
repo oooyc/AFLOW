@@ -15,5 +15,6 @@ class CodeGenerateOp(BaseModel):
 
 
 class ScEnsembleOp(BaseModel):
+    thought: str = Field(default="", description="The explanation of the most consistent solution.")
     solution_letter: str = Field(default="", description="The letter of most consistent solution.")
 

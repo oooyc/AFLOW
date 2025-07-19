@@ -247,6 +247,14 @@ class AsyncLLM:
             temperature=self.config.temperature,
             top_p=self.config.top_p,
         )
+        # response = self.aclient.messages.create(
+        #     model=self.config.model,
+        #     # system=system_prompt,            # <-- system 消息作为独立参数
+        #     messages=message,          # <-- messages 列表只包含用户消息
+        #     max_tokens=4096,                 # <-- Anthropic API 的必需参数
+        #     temperature=self.config.temperature,
+        #     top_p=self.config.top_p,
+        # )
 
         # 3. 提取和处理响应（这部分与之前基本相同）
         # Extract token usage from response

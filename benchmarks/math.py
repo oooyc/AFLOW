@@ -169,7 +169,7 @@ class MATHBenchmark(BaseBenchmark):
                 problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
                 problem_data["failed_attempts"][str(attempt)] = str(e)
                 
-                logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。")
+                logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。失败原因： {e}")
                 if attempt < max_attempts:
                     await asyncio.sleep(wait_seconds)
         
