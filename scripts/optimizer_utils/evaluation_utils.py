@@ -27,7 +27,7 @@ class EvaluationUtils:
 
         return data
 
-    async def evaluate_graph(self, optimizer, directory, validation_n, data, initial=False):
+    async def evaluate_graph(self, optimizer, directory, validation_n, data, initial=False, round=0):
         evaluator = Evaluator(eval_path=directory)
         sum_score = 0
 
@@ -38,6 +38,8 @@ class EvaluationUtils:
                 {"dataset": optimizer.dataset, "llm_config": optimizer.execute_llm_config},
                 directory,
                 is_test=False,
+                validation_n=i + 1,
+                round=round,
             )
 
             cur_round = optimizer.round + 1 if initial is False else optimizer.round
@@ -49,6 +51,9 @@ class EvaluationUtils:
             optimizer.data_utils.save_results(result_path, data)
 
             sum_score += score
+
+        evaluator.benchmark.write_per_round_report(round)
+        evaluator.benchmark.clear_round_data(round)
 
         return sum_score / validation_n
 

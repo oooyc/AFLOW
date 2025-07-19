@@ -11,11 +11,19 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fi
 
 from benchmarks.benchmark import BaseBenchmark
 from scripts.logs import logger
+import os
 
+import json
+import asyncio
 
 class MATHBenchmark(BaseBenchmark):
-    def __init__(self, name: str, file_path: str, log_path: str):
+    def __init__(self, name: str, file_path: str, log_path: str, failure_report_path: str = "failure_report.json"):
         super().__init__(name, file_path, log_path)
+        # 主数据结构，用于实时构建报告
+        self.failure_report_data: dict = {}
+        # 全局总尝试次数计数器
+        self.global_total_attempts: int = 0
+        self.failure_report_path = os.path.join(log_path, failure_report_path)
 
     def extract_model_answer(self, text: str) -> str:
         pattern = r"\\boxed{((?:[^{}]|{[^{}]*})*)}"
@@ -106,34 +114,109 @@ class MATHBenchmark(BaseBenchmark):
         except OSError:
             return "no code"
 
-    @retry(stop=stop_after_attempt(5), wait=wait_fixed(1), retry=retry_if_exception_type(Exception), reraise=True)
+    # @retry(stop=stop_after_attempt(5), wait=wait_fixed(1), retry=retry_if_exception_type(Exception), reraise=True)
     async def _generate_output(self, graph, input_text):
         return await graph(input_text)
 
-    async def evaluate_problem(self, problem: dict, graph: Callable) -> Tuple[str, str, str, int, float]:
+    async def evaluate_problem(self, i: int, problem: dict, graph: Callable, validation_n=None, round=None) -> Tuple[str, str, str, int, float]:
         input_text = problem["problem"]
         expected_output = problem["solution"]
+        
+        round_key = f"round_{round}"
+        validation_key = f"validation_{validation_n}"
+        problem_key = f"problem_{i}"
 
+        # highlight-start
+        # --- 更新数据结构，为每个层级添加两种失败计数器 ---
+        round_data = self.failure_report_data.setdefault(
+            round_key, 
+            {"round_total_attempts": 0, "round_failed_attempts": 0, "round_failed_problems": 0}
+        )
+        validation_data = round_data.setdefault(
+            validation_key, 
+            {"validation_total_attempts": 0, "validation_failed_attempts": 0, "validation_failed_problems": 0}
+        )
+        # highlight-end
+
+        max_attempts = 5
+        wait_seconds = 1
+        last_exception = None
+
+        for attempt in range(1, max_attempts + 1):
+            self.global_total_attempts += 1
+            round_data["round_total_attempts"] += 1
+            validation_data["validation_total_attempts"] += 1
+
+            try:
+                output, cost = await self._generate_output(graph, input_text)
+                uni_score, extracted_output = self.calculate_score(expected_output, output)
+                if uni_score == 0:
+                    self.log_mismatch(
+                        input_text, expected_output, output, extracted_output,
+                        extract_answer_code=self.get_function_code(self.extract_model_answer)
+                    )
+                return input_text, output, expected_output, uni_score, cost
+
+            except Exception as e:
+                last_exception = e
+                
+                # highlight-start
+                # --- 版本B逻辑: 每次尝试失败，增加 "failed_attempts" 计数 ---
+                round_data["round_failed_attempts"] += 1
+                validation_data["validation_failed_attempts"] += 1
+                # highlight-end
+                
+                problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
+                problem_data["failed_attempts"][str(attempt)] = str(e)
+                
+                logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。")
+                if attempt < max_attempts:
+                    await asyncio.sleep(wait_seconds)
+        
+        # --- 循环结束后执行 ---
+        # highlight-start
+        # --- 版本A逻辑: 所有尝试都失败后，增加 "failed_problems" 计数 ---
+        round_data["round_failed_problems"] += 1
+        validation_data["validation_failed_problems"] += 1
+        # highlight-end
+        
+        logger.error(f"问题 {i} [Round {round}, Val {validation_n}] 所有尝试均失败，跳过。")
+        return input_text, str(last_exception), expected_output, 0.0, 0.0
+
+    def write_per_round_report(self, round_num: int):
+        """
+        将指定轮次的失败报告写入独立的JSON文件。
+        文件名将基于 `failure_report_path` 自动生成。
+        """
+        round_key = f"round_{round_num}"
+        
+        # 1. 获取当前轮次的数据
+        round_data_to_save = self.failure_report_data.get(round_key)
+        
+        if not round_data_to_save:
+            logger.warning(f"在第 {round_num} 轮没有找到任何失败数据，跳过写入文件。")
+            return
+
+        # 2. 生成新的文件名，例如 "report.json" -> "report_round_1.json"
+        base, ext = os.path.splitext(self.failure_report_path)
+        output_path = f"{base}_round_{round_num}{ext}"
+        
+        # 3. 写入JSON文件
         try:
-            output, cost = await self._generate_output(graph, input_text)
-            uni_score, extracted_output = self.calculate_score(expected_output, output)
-
-            if uni_score == 0:
-                self.log_mismatch(
-                    input_text,
-                    expected_output,
-                    output,
-                    extracted_output,
-                    extract_answer_code=self.get_function_code(self.extract_model_answer),
-                )
-
-            return input_text, output, expected_output, uni_score, cost
-
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(round_data_to_save, f, indent=4, ensure_ascii=False)
+            logger.info(f"第 {round_num} 轮的失败报告已成功写入到: {output_path}")
         except Exception as e:
-
-            # 在这里run我的workflow，看能不能在这里添加个计数器记录我执行失败的次数
-            logger.info(f"Maximum retries reached. Skipping this sample. Error: {e}")
-            return input_text, str(e), expected_output, 0.0, 0.0
+            logger.error(f"写入第 {round_num} 轮失败报告时发生错误: {e}")
+            
+    def clear_round_data(self, round_num: int):
+        """
+        (可选) 清理指定轮次的内存数据，以节省空间。
+        """
+        round_key = f"round_{round_num}"
+        if round_key in self.failure_report_data:
+            del self.failure_report_data[round_key]
+            logger.info(f"已清理第 {round_num} 轮的内存数据。")
 
     def get_result_columns(self) -> List[str]:
         return ["question", "prediction", "expected_output", "score", "cost"]

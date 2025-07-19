@@ -132,7 +132,7 @@ class Optimizer:
             directory = self.graph_utils.create_round_directory(graph_path, self.round)
             # Load graph using graph_utils
             self.graph = self.graph_utils.load_graph(self.round, graph_path)
-            avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=True)
+            avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=True, round=round)
 
         # Create a loop until the generated graph meets the check conditions
         while True:
@@ -203,7 +203,7 @@ class Optimizer:
 
         logger.info(directory)
 
-        avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=False)
+        avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=False, round=self.round + 1)
         # 跑5次取平均，如果执行失败分数就是0
 
         self.experience_utils.update_experience(directory, experience, avg_score)
