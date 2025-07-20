@@ -116,6 +116,9 @@ class MATHBenchmark(BaseBenchmark):
 
     # @retry(stop=stop_after_attempt(5), wait=wait_fixed(1), retry=retry_if_exception_type(Exception), reraise=True)
     async def _generate_output(self, graph, input_text):
+        # 可以在这里返回中间输出和评分，就是处理graph的return
+        # 这一步讲node_evaluations清空，避免重复记录,非常重要！！！！
+        graph.node_evaluations.clear() 
         return await graph(input_text)
 
     async def evaluate_problem(self, i: int, problem: dict, graph: Callable, validation_n=None, round=None) -> Tuple[str, str, str, int, float]:
@@ -146,14 +149,15 @@ class MATHBenchmark(BaseBenchmark):
             self.global_total_attempts += 1
             round_data["round_total_attempts"] += 1
             validation_data["validation_total_attempts"] += 1
-
+            # 这里可能需要处理graph的返回值！！！！！！！
             try:
                 output, cost = await self._generate_output(graph, input_text)
                 uni_score, extracted_output = self.calculate_score(expected_output, output)
                 if uni_score == 0:
                     self.log_mismatch(
                         input_text, expected_output, output, extracted_output,
-                        extract_answer_code=self.get_function_code(self.extract_model_answer)
+                        extract_answer_code=self.get_function_code(self.extract_model_answer), 
+                        valuation_log=graph.node_evaluations
                     )
                 return input_text, output, expected_output, uni_score, cost
 

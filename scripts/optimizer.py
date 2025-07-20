@@ -131,7 +131,8 @@ class Optimizer:
         if self.round == 1:
             directory = self.graph_utils.create_round_directory(graph_path, self.round)
             # Load graph using graph_utils
-            self.graph = self.graph_utils.load_graph(self.round, graph_path)
+            self.graph = self.graph_utils.load_graph(2, graph_path)
+            # self.graph = self.graph_utils.load_graph(self.round, graph_path)
             avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=True, round=round)
 
         # Create a loop until the generated graph meets the check conditions
@@ -141,6 +142,7 @@ class Optimizer:
             top_rounds = self.data_utils.get_top_rounds(self.sample)
             sample = self.data_utils.select_round(top_rounds)
 
+            # prompt, graph_load = self.graph_utils.read_graph_files(2, graph_path)
             prompt, graph_load = self.graph_utils.read_graph_files(sample["round"], graph_path)
             # 读prompt.py和graph.py
             graph = self.graph_utils.extract_solve_graph(graph_load)
@@ -249,7 +251,7 @@ class Optimizer:
             return None
 
     async def test(self):
-        rounds = [2]  # You can choose the rounds you want to test here.
+        rounds = [1]  # You can choose the rounds you want to test here.
         data = []
 
         graph_path = f"{self.root_path}/workflows_test"

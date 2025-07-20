@@ -16,11 +16,12 @@ class Workflow:
         self.name = name
         self.dataset = dataset
         self.llm = create_llm_instance(llm_config)
-        self.custom = operator.Custom(self.llm)
+        self.node_evaluations = []
+        self.custom = operator.Custom(self.llm, eval_log=self.node_evaluations)
 
     async def __call__(self, problem: str):
         """
         Implementation of the workflow
         """
-        solution = await self.custom(input=problem, instruction="")
+        solution = await self.custom(input=problem, instruction="", rate_input=False)
         return solution['response'], self.llm.get_usage_summary()["total_cost"]

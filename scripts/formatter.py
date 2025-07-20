@@ -240,3 +240,58 @@ class TextFormatter(BaseFormatter):
         """
         return True, response
     
+
+class WrapperXmlFormatter(BaseFormatter):
+    # def __init__(self, ):
+    op_class: Optional[Type[BaseModel]] = None
+    inner_formatter: Optional[BaseFormatter] = None
+
+    def prepare_prompt(self, prompt: str) -> str:
+        # 外部的prompt在operator调用的时候已经处理过了，这里只需要处理内部的格式化
+        return self.inner_formatter.prepare_prompt(prompt)
+    
+    def validate_response(self, response):
+        # 1. 使用XmlFormatter的逻辑解析外层
+        outer_formatter = XmlFormatter.from_model(self.op_class)
+
+        is_outer_valid, outer_data = outer_formatter.validate_response(response)
+
+        if not is_outer_valid:
+            # 如果外层XML结构无效，则直接验证失败
+            return False, None
+        
+        task_output_raw = outer_data.get("task_output", "")
+        
+        # 2. 如果有内部Formatter，用它处理<task_output>的内容
+        if self.inner_formatter:
+            is_inner_valid, inner_result = self.inner_formatter.validate_response(task_output_raw)
+            if not is_inner_valid:
+                # 如果内部内容验证失败，则整个响应都视为无效
+                return False, None
+            
+                # 如果验证成功，使用其结果
+            task_output_final = inner_result
+        else:
+            # 如果没有指定内部formatter，则直接使用原始文本
+            task_output_final = task_output_raw
+
+        # 4. 将外层的评分和处理后的内层任务输出组合成最终结果
+        input_rating = {
+            "score": outer_data.get("score", 0),
+            "justification": outer_data.get("justification", None),
+        }
+
+        return True, task_output_final, input_rating
+    
+    @classmethod
+    def create(cls, op_class: Optional[Type[BaseModel]] = None, inner_formatter: Optional[BaseFormatter] = None) -> "WrapperXmlFormatter":
+        """
+        Factory method to create a WrapperXmlFormatter instance
+        
+        Args:
+            function_name: Optional name of the function to extract
+            
+        Returns:
+            A configured CodeFormatter instance
+        """
+        return cls(op_class=op_class, inner_formatter=inner_formatter)    

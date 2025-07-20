@@ -52,6 +52,7 @@ class BaseBenchmark(ABC):
         prediction: str,
         extracted_output: Any,
         extract_answer_code: str = "None",
+        valuation_log: Any = None,
     ):
         log_data = {
             "question": problem,
@@ -59,6 +60,7 @@ class BaseBenchmark(ABC):
             "model_output": prediction,
             "extracted_output": extracted_output,
             "extract_answer_code": extract_answer_code,
+            "intermediate_eval": valuation_log,
         }
         log_file = Path(self.log_path) / "log.json"
         if log_file.exists():
@@ -71,6 +73,7 @@ class BaseBenchmark(ABC):
             data = []
         data.append(log_data)
         write_json_file(log_file, data, encoding="utf-8", indent=4)
+        # 在这里保存的log文件！！！！！！！！！！！！！！！！！！！！log保留中间输出，同时也计算一下平均分
 
     @abstractmethod
     async def evaluate_problem(self, problem: dict, agent: Callable) -> Tuple[Any, ...]:
@@ -94,7 +97,7 @@ class BaseBenchmark(ABC):
         tasks = [sem_evaluate(i, problem, validation_n=validation_n, round=round) for i, problem in enumerate(data)]
         return await tqdm_asyncio.gather(*tasks, desc=f"Evaluating {self.name} problems", total=len(data))
 
-    async def run_evaluation(self, agent: Callable, va_list: List[int], max_concurrent_tasks: int = 10, validation_n = None, round = None):
+    async def run_evaluation(self, agent: Callable, va_list: List[int], max_concurrent_tasks: int = 1, validation_n = None, round = None):
         data = await self.load_data(va_list)
         results = await self.evaluate_all_problems(data, agent, max_concurrent_tasks, validation_n = validation_n, round = round)
         columns = self.get_result_columns()

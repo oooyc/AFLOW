@@ -5,6 +5,10 @@
 
 from pydantic import BaseModel, Field
 
+class InputRatingOp(BaseModel):
+    score: int = Field(..., description="A score from 1 to 10 evaluating the input quality.")
+    justification: str = Field(..., description="A brief justification for the score.")
+
 
 class GenerateOp(BaseModel):
     response: str = Field(default="", description="Your solution for this problem")

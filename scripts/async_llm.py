@@ -101,8 +101,9 @@ class ModelPricing:
         "gpt-4o-mini-2024-07-18": {"input": 0.00015, "output": 0.0006},
         "claude-3-5-sonnet": {"input": 0.003, "output": 0.015},
         "claude-3-7-sonnet-20250219": {"input": 0.003, "output": 0.015},
-        "claude-sonnet-4-20250514": {"input": 0.003, "output": 0.015}
-
+        "claude-sonnet-4-20250514": {"input": 0.003, "output": 0.015},
+        "deepseek-chat": {"input": 0.002, "output": 0.008},
+        "deepseek-reasoner": {"input": 0.004, "output": 0.016},
     }
     
     @classmethod
@@ -183,86 +184,36 @@ class AsyncLLM:
         
         # At this point, config should be an LLMConfig instance
         self.config = config
-        http_client = httpx.AsyncClient(proxy=self.config.proxy_url) if self.config.proxy_url else None
-        self.aclient = AsyncAnthropic(api_key=self.config.key, base_url=self.config.base_url, http_client=http_client)
-        # self.aclient = AsyncOpenAI(api_key=self.config.key, base_url=self.config.base_url, http_client=http_client)
+
+
+        # http_client = httpx.AsyncClient(proxy=self.config.proxy_url) if self.config.proxy_url else None
+        # self.aclient = AsyncAnthropic(api_key=self.config.key, base_url=self.config.base_url, http_client=http_client)
+
+
+        self.aclient = AsyncOpenAI(api_key=self.config.key, base_url=self.config.base_url)
         self.sys_msg = system_msg
         self.usage_tracker = TokenUsageTracker()
         
-    # async def __call__(self, prompt):
-    #     message = []
-    #     if self.sys_msg is not None:
-    #         message.append({
-    #             "content": self.sys_msg,
-    #             "role": "system"
-    #         })
-
-    #     message.append({"role": "user", "content": prompt})
-
-    #     response = await self.aclient.chat.completions.create(
-    #         model=self.config.model,
-    #         messages=message,
-    #         temperature=self.config.temperature,
-    #         top_p = self.config.top_p,
-    #     )
-
-    #     # Extract token usage from response
-    #     input_tokens = response.usage.prompt_tokens
-    #     output_tokens = response.usage.completion_tokens
-        
-    #     # Track token usage and calculate cost
-    #     usage_record = self.usage_tracker.add_usage(
-    #         self.config.model,
-    #         input_tokens,
-    #         output_tokens
-    #     )
-        
-    #     ret = response.choices[0].message.content
-    #     print(ret)
-        
-    #     # You can optionally print token usage information
-    #     print(f"Token usage: {input_tokens} input + {output_tokens} output = {input_tokens + output_tokens} total")
-    #     print(f"Cost: ${usage_record['total_cost']:.6f} (${usage_record['input_cost']:.6f} for input, ${usage_record['output_cost']:.6f} for output)")
-        
-    #     return ret
-
     async def __call__(self, prompt):
-        # 1. 为 Anthropic API 准备参数
-        # 将系统消息和用户消息分开
         message = []
         if self.sys_msg is not None:
             message.append({
                 "content": self.sys_msg,
                 "role": "system"
             })
-        user_messages = {"role": "user", "content": prompt}
-        message.append(user_messages)
 
-        # 2. 使用 Anthropic 的正确方法和参数进行调用
-        response = await self.aclient.messages.create(
+        message.append({"role": "user", "content": prompt})
+
+        response = await self.aclient.chat.completions.create(
             model=self.config.model,
-            # system=system_prompt,            # <-- system 消息作为独立参数
-            messages=message,          # <-- messages 列表只包含用户消息
-            max_tokens=4096,                 # <-- Anthropic API 的必需参数
+            messages=message,
             temperature=self.config.temperature,
-            top_p=self.config.top_p,
+            top_p = self.config.top_p,
         )
-        # response = self.aclient.messages.create(
-        #     model=self.config.model,
-        #     # system=system_prompt,            # <-- system 消息作为独立参数
-        #     messages=message,          # <-- messages 列表只包含用户消息
-        #     max_tokens=4096,                 # <-- Anthropic API 的必需参数
-        #     temperature=self.config.temperature,
-        #     top_p=self.config.top_p,
-        # )
 
-        # 3. 提取和处理响应（这部分与之前基本相同）
         # Extract token usage from response
-        # input_tokens = response.usage.prompt_tokens
-        # output_tokens = response.usage.completion_tokens
-
-        input_tokens = response.usage.input_tokens
-        output_tokens = response.usage.output_tokens
+        input_tokens = response.usage.prompt_tokens
+        output_tokens = response.usage.completion_tokens
         
         # Track token usage and calculate cost
         usage_record = self.usage_tracker.add_usage(
@@ -271,8 +222,7 @@ class AsyncLLM:
             output_tokens
         )
         
-        # Anthropic 的响应内容在 response.content[0].text
-        ret = response.content[0].text
+        ret = response.choices[0].message.content
         print(ret)
         
         # You can optionally print token usage information
@@ -280,8 +230,64 @@ class AsyncLLM:
         print(f"Cost: ${usage_record['total_cost']:.6f} (${usage_record['input_cost']:.6f} for input, ${usage_record['output_cost']:.6f} for output)")
         
         return ret
+
+    # async def __call__(self, prompt):
+    #     # 1. 为 Anthropic API 准备参数
+    #     # 将系统消息和用户消息分开
+    #     message = []
+    #     if self.sys_msg is not None:
+    #         message.append({
+    #             "content": self.sys_msg,
+    #             "role": "system"
+    #         })
+    #     user_messages = {"role": "user", "content": prompt}
+    #     message.append(user_messages)
+
+    #     # 2. 使用 Anthropic 的正确方法和参数进行调用
+    #     response = await self.aclient.messages.create(
+    #         model=self.config.model,
+    #         # system=system_prompt,            # <-- system 消息作为独立参数
+    #         messages=message,          # <-- messages 列表只包含用户消息
+    #         max_tokens=4096,                 # <-- Anthropic API 的必需参数
+    #         temperature=self.config.temperature,
+    #         top_p=self.config.top_p,
+    #     )
+    #     # response = self.aclient.messages.create(
+    #     #     model=self.config.model,
+    #     #     # system=system_prompt,            # <-- system 消息作为独立参数
+    #     #     messages=message,          # <-- messages 列表只包含用户消息
+    #     #     max_tokens=4096,                 # <-- Anthropic API 的必需参数
+    #     #     temperature=self.config.temperature,
+    #     #     top_p=self.config.top_p,
+    #     # )
+
+    #     # 3. 提取和处理响应（这部分与之前基本相同）
+    #     # Extract token usage from response
+    #     # input_tokens = response.usage.prompt_tokens
+    #     # output_tokens = response.usage.completion_tokens
+
+    #     # 可能需要补充缓存hit的token使用情况
+    #     input_tokens = response.usage.input_tokens
+    #     output_tokens = response.usage.output_tokens
+        
+    #     # Track token usage and calculate cost
+    #     usage_record = self.usage_tracker.add_usage(
+    #         self.config.model,
+    #         input_tokens,
+    #         output_tokens
+    #     )
+        
+    #     # Anthropic 的响应内容在 response.content[0].text
+    #     ret = response.content[0].text
+    #     print(ret)
+        
+    #     # You can optionally print token usage information
+    #     print(f"Token usage: {input_tokens} input + {output_tokens} output = {input_tokens + output_tokens} total")
+    #     print(f"Cost: ${usage_record['total_cost']:.6f} (${usage_record['input_cost']:.6f} for input, ${usage_record['output_cost']:.6f} for output)")
+        
+    #     return ret
     
-    async def call_with_format(self, prompt: str, formatter: BaseFormatter):
+    async def call_with_format(self, prompt: str, formatter: BaseFormatter, rate_input: bool = False) -> Any:
         """
         Call the LLM with a prompt and format the response using the provided formatter
         
@@ -302,13 +308,17 @@ class AsyncLLM:
         response = await self.__call__(formatted_prompt)
         
         # Validate and parse the response
-        is_valid, parsed_data = formatter.validate_response(response)
+        if not rate_input:
+            is_valid, parsed_data = formatter.validate_response(response)
+            input_rating = None
+        else:
+            is_valid, parsed_data, input_rating = formatter.validate_response(response)
         
         if not is_valid:
             error_message = formatter.format_error_message()
             raise FormatError(f"{error_message}. Raw response: {response}")
         
-        return parsed_data
+        return parsed_data, input_rating
     
     def get_usage_summary(self):
         """Get a summary of token usage and costs"""

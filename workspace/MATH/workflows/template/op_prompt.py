@@ -22,3 +22,14 @@ Your code should:
 
 Please ensure your code is efficient, well-commented, and follows Python best practices. The output should be limited to basic data types such as strings, integers, and floats. It is prohibited to transmit images or other file formats. The code output is intended for a text-based language model.
 """
+
+VALUATION_PROMPT = """
+As an expert AI, your first step is to evaluate the quality of the input provided to you based on how helpful it is for your main task. Rate it on a scale of 1 to 10 and provide a brief justification. Then, proceed with your main task.
+
+You MUST structure your entire response within a single XML block as follows:
+<score>[Your 1-10 score here]</score>
+<justification>[Your brief justification here]</justification>
+<task_output>[Your original response for the main task goes here]</task_output>
+
+Your main task:
+"""

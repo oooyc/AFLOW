@@ -80,13 +80,13 @@ def parse_args():
     parser.add_argument(
         "--opt_model_name",
         type=str,
-        default="claude-3-7-sonnet-20250219",
+        default="deepseek-reasoner",
         help="Specifies the name of the model used for optimization tasks.",
     )
     parser.add_argument(
         "--exec_model_name",
         type=str,
-        default="claude-3-7-sonnet-20250219",
+        default="deepseek-chat",
         help="Specifies the name of the model used for execution tasks.",
     )
     return parser.parse_args()
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     )
 
     # Optimize workflow via setting the optimizer's mode to 'Graph'
-    # optimizer.optimize("Graph")
+    optimizer.optimize("Graph")
 
     # Test workflow via setting the optimizer's mode to 'Test'
-    optimizer.optimize("Test")
+    # optimizer.optimize("Test")
