@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": "--dataset MATH --sample 4 --optimized_path workspace --initial_round 1 --max_rounds 20 --check_convergence True --validation_rounds 5",
+            "args": "--dataset MATH --sample 4 --optimized_path workspace --initial_round 2 --max_rounds 20 --check_convergence False --validation_rounds 1",
         }
     ]
 }

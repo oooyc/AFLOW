@@ -52,8 +52,8 @@ class EvaluationUtils:
 
             sum_score += score
 
-        evaluator.benchmark.write_per_round_report(round)
-        evaluator.benchmark.clear_round_data(round)
+        # evaluator.benchmark.write_per_round_report(round)
+        # evaluator.benchmark.clear_round_data(round)
 
         return sum_score / validation_n
 

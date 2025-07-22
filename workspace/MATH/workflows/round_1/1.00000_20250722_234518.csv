@@ -1,0 +1,200 @@
+question,prediction,expected_output,score,cost
+"A particular convex pentagon has two congruent, acute angles. The measure of each of the other interior angles is equal to the sum of the measures of the two acute angles. What is the common measure of the large angles, in degrees?","Alright, I have a problem to solve:
+
+**Problem Statement:**
+*A particular convex pentagon has two congruent, acute angles. The measure of each of the other interior angles is equal to the sum of the measures of the two acute angles. What is the common measure of the large angles, in degrees?*
+
+### Understanding the Problem
+First, I need to understand the scenario:
+1. **Shape**: It's a convex pentagon, meaning it has five sides and all its interior angles are less than 180°.
+2. **Angles**: 
+   - Two of the angles are congruent (equal in measure) and acute (less than 90°).
+   - The other three angles are larger, and each of these larger angles is equal to the sum of the two acute angles.
+
+### Drawing a Diagram
+Visualizing helps. I draw a pentagon ABCDE:
+- Let's say angles A and B are the two congruent acute angles.
+- Angles C, D, and E are the larger angles, each equal to A + B.
+
+### Sum of Interior Angles of a Pentagon
+I recall that the sum of the interior angles of an n-sided polygon is (n-2) × 180°.
+For a pentagon (n=5):
+Sum = (5-2) × 180° = 3 × 180° = 540°.
+
+### Setting Up the Equation
+Given:
+- Angle A = Angle B = x (since they are congruent and acute).
+- Angles C, D, E = A + B = x + x = 2x.
+
+Now, the sum of all interior angles is:
+A + B + C + D + E = x + x + 2x + 2x + 2x = 8x.
+
+But we know the sum must be 540°:
+8x = 540°.
+
+### Solving for x
+Divide both sides by 8:
+x = 540° / 8 = 67.5°.
+
+### Checking the Conditions
+- **Acute Angles**: x = 67.5° is indeed less than 90°.
+- **Large Angles**: 2x = 135°.
+
+But, the problem states that the pentagon is convex, meaning all interior angles must be less than 180°. 135° is less than 180°, so it's valid.
+
+### Verification
+Let's verify the sum:
+2 acute angles: 2 × 67.5° = 135°.
+3 large angles: 3 × 135° = 405°.
+Total sum: 135° + 405° = 540°.
+
+This matches the required sum, so our solution seems correct.
+
+### Conclusion
+The common measure of the large angles is 2x, which is 135°.
+
+### Final Answer
+After careful consideration, the common measure of the large angles is \boxed{135} degrees.","If $x$ is the measure in degrees of each of the acute angles, then each of the larger angles measures $2x$ degrees.  Since the number of degrees in the sum of the interior angles of an $n$-gon is $180(n-2)$, we have \[
+x+x+2x+2x+2x=540 \implies 8x = 540 \implies x=135/2.
+\] The large angles each measure $2x=\boxed{135}$ degrees.",1,0.017076
+"Below is a magic square, meaning that the sum of the numbers in each row, in each column, and in each of the $2$ main diagonals are equal. What is the value of $n$?
+
+[asy]size(125);
+for(int i = 0; i<4; ++i)
+{
+
+draw((0,i)--(3,i),linewidth(1));
+}
+
+for(int j = 0; j<4; ++j)
+{
+
+draw((j,0)--(j,3),linewidth(1));
+}
+
+label(""$n-3$"",(.5,.5));
+label(""3"",(.5,1.5));
+label(""$n+1$"",(.5,2.5));
+
+label(""$n+2$"",(1.5,.5));
+label(""$2n-9$"",(1.5,1.5));
+label(""$1$"",(1.5,2.5));
+
+label(""$2$"",(2.5,.5));
+label(""$n$"",(2.5,1.5));
+label(""$n-1$"",(2.5,2.5));
+[/asy]","Alright, I have this problem about a magic square, and I need to find the value of \( n \). First, I need to understand what a magic square is. From what I know, a magic square is a grid (in this case, 3x3) where the sums of numbers in each row, each column, and both main diagonals are equal.
+
+### Understanding the Magic Square Layout
+Looking at the Asymptote code provided, it's a 3x3 grid. The labels are placed as follows:
+
+- **First Column**:
+  - (0.5, 0.5): \( n-3 \) (top-left)
+  - (0.5, 1.5): 3 (middle-left)
+  - (0.5, 2.5): \( n+1 \) (bottom-left)
+
+- **Second Column**:
+  - (1.5, 0.5): \( n+2 \) (top-middle)
+  - (1.5, 1.5): \( 2n-9 \) (center)
+  - (1.5, 2.5): 1 (bottom-middle)
+
+- **Third Column**:
+  - (2.5, 0.5): 2 (top-right)
+  - (2.5, 1.5): \( n \) (middle-right)
+  - (2.5, 2.5): \( n-1 \) (bottom-right)
+
+### Step 1: Find the Magic Sum
+First, I need to find the common sum (magic sum) for all rows, columns, and diagonals. To find this, I can use the first row since it has three known expressions.
+
+**First Row**: \( n-3 \) (first column), \( n+2 \) (second column), 2 (third column).
+
+Magic Sum \( S \) = \( (n-3) + (n+2) + 2 = 2n - 3 + 2 = 2n - 1 \).
+
+### Step 2: Verify with Another Row or Column
+Let's take the third row to verify or find \( n \).
+
+**Third Row**: \( n+1 \) (first column), 1 (second column), \( n-1 \) (third column).
+
+Magic Sum \( S \) = \( (n+1) + 1 + (n-1) = 2n + 1 \).
+
+But from the first row, \( S = 2n - 1 \). 
+
+Now, both expressions must be equal because they represent the same magic sum.
+
+So, \( 2n - 1 = 2n + 1 \).
+
+But \( 2n - 1 = 2n + 1 \) simplifies to \( -1 = 1 \), which is not possible.
+
+### Oops, Mistake Detected!
+This doesn't make sense. Did I misinterpret the positions?
+
+Looking back at the Asymptote code:
+- The y-coordinates seem to be increasing as we go down because in computer graphics, the origin is often at the top-left.
+- So, (0.5, 0.5) is the top-left cell, (0.5, 1.5) is the middle-left, and (0.5, 2.5) is the bottom-left.
+
+But in standard matrix notation, the first row is the top row.
+
+**First Row**: \( n-3 \) (first column), \( n+2 \) (second column), 2 (third column).
+Magic Sum \( S = (n-3) + (n+2) + 2 = 2n + 1 \).
+
+**Third Row**: \( n+1 \) (first column), 1 (second column), \( n-1 \) (third column).
+Magic Sum \( S = (n+1) + 1 + (n-1) = 2n + 1 \).
+
+Now, both rows give the same magic sum \( S = 2n + 1 \). That's consistent!
+
+### Step 3: Use the Second Row to Find \( n \)
+**Second Row**: 3 (first column), \( 2n-9 \) (second column), \( n \) (third column).
+
+Magic Sum \( S = 3 + (2n - 9) + n = 3n - 6 \).
+
+But \( S \) must be equal to \( 2n + 1 \).
+
+So, \( 3n - 6 = 2n + 1 \).
+
+Let's solve for \( n \):
+- Subtract \( 2n \) from both sides: \( n - 6 = 1 \).
+- Add 6 to both sides: \( n = 7 \).
+
+### Verification
+Now, let's verify \( n = 7 \) in all rows, columns, and diagonals.
+
+#### Magic Sum Calculation
+From the first row: \( S = 2n + 1 = 2*7 + 1 = 15 \).
+
+#### Rows
+1. **First Row**: \( n-3 = 4 \), \( n+2 = 9 \), \( 2 \). Sum: \( 4 + 9 + 2 = 15 \).
+2. **Second Row**: \( 3 \), \( 2n-9 = 5 \), \( n = 7 \). Sum: \( 3 + 5 + 7 = 15 \).
+3. **Third Row**: \( n+1 = 8 \), \( 1 \), \( n-1 = 6 \). Sum: \( 8 + 1 + 6 = 15 \).
+
+#### Columns
+1. **First Column**: \( 4 \), \( 3 \), \( 8 \). Sum: \( 4 + 3 + 8 = 15 \).
+2. **Second Column**: \( 9 \), \( 5 \), \( 1 \). Sum: \( 9 + 5 + 1 = 15 \).
+3. **Third Column**: \( 2 \), \( 7 \), \( 6 \). Sum: \( 2 + 7 + 6 = 15 \).
+
+#### Diagonals
+1. **Main Diagonal (Top-left to Bottom-right)**: \( 4 \), \( 5 \), \( 6 \). Sum: \( 4 + 5 + 6 = 15 \).
+2. **Other Diagonal (Top-right to Bottom-left)**: \( 2 \), \( 5 \), \( 8 \). Sum: \( 2 + 5 + 8 = 15 \).
+
+All sums match the magic sum \( S = 15 \). Therefore, \( n = 7 \) is indeed the correct value.
+
+### Conclusion
+After carefully analyzing the magic square and verifying all rows, columns, and diagonals, the value of \( n \) that satisfies all conditions is:
+
+\boxed{7}","First, we can evaluate the sum across the first row, which gives $(n+1)+1+(n-1)=2n+1$.  Evaluate the sum of the entries across the second row, $3+(2n-9)+n=3n-6$. Now, since we have a magic square, these two sums are equal.  So $2n+1=3n-6$. Isolating $n$, we obtain $n = \boxed{7}$.
+
+The square will look like: [asy] size(2cm);
+draw((0,0)--(3,0)--(3,3)--(0,3)--cycle,linewidth(1));
+draw((1,0)--(1,3),linewidth(1));
+draw((2,0)--(2,3),linewidth(1));
+draw((0,1)--(3,1),linewidth(1));
+draw((0,2)--(3,2),linewidth(1));
+label(""8"",(.5,2.5));
+label(""1"",(1.5,2.5));
+label(""6"",(2.5,2.5));
+label(""3"",(.5,1.5));
+label(""5"",(1.5,1.5));
+label(""7"",(2.5,1.5));
+label(""4"",(.5,.5));
+label(""9"",(1.5,.5));
+label(""2"",(2.5,.5));
+[/asy]",1,0.012198

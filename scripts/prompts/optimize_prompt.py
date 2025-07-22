@@ -12,7 +12,6 @@ The prompt you need to generate is only the one used in `prompt_custom.XXX` with
 the generated prompt must not contain any placeholders.
 Considering information loss, complex graphs may yield better results, but insufficient information transmission can omit the solution. It's crucial to include necessary context during the process."""
 
-# 加了这句话：For the first node, set rate_input=False, and for the other nodes, set it to True
 
 WORKFLOW_INPUT = """
 Here is a graph and the corresponding prompt (prompt only related to the custom method) that performed excellently in a previous iteration (maximum score is 1). You must make further optimizations and improvements based on this graph. The modified graph must differ from the provided example, and the specific differences should be noted within the <modification>xxx</modification> section.\n
@@ -52,7 +51,6 @@ WORKFLOW_TEMPLATE = """from typing import Literal
 import workspace.{dataset}.workflows.template.operator as operator
 import workspace.{dataset}.workflows.round_{round}.prompt as prompt_custom
 from scripts.async_llm import create_llm_instance
-
 
 DatasetType = Literal["HumanEval", "MBPP", "GSM8K", "MATH", "HotpotQA", "DROP"]
 

@@ -90,7 +90,7 @@ class XmlFormatter(BaseFormatter):
 
         example_str = "\n".join(examples)
         
-        instructions = prompt + f"\n# Response format (must be strictly followed) (do not include any other formats except for the given XML format):\n{example_str}"
+        instructions = prompt + f"\n\n# Response format (must be strictly followed) (do not include any other formats except for the given XML format):\n{example_str}"
         return instructions
     
     def validate_response(self, response: str) -> Tuple[bool, dict]:

@@ -1,0 +1,295 @@
+question,prediction,expected_output,score,cost
+"A particular convex pentagon has two congruent, acute angles. The measure of each of the other interior angles is equal to the sum of the measures of the two acute angles. What is the common measure of the large angles, in degrees?","Alright, I have a problem to solve:
+
+**Problem Statement:**
+*A particular convex pentagon has two congruent, acute angles. The measure of each of the other interior angles is equal to the sum of the measures of the two acute angles. What is the common measure of the large angles, in degrees?*
+
+### Understanding the Problem
+First, I need to understand the given information:
+1. **Shape**: It's a convex pentagon, meaning it has five sides and all its interior angles are less than 180°.
+2. **Angles**:
+   - Two of the angles are congruent (equal in measure) and acute (less than 90°).
+   - The other three angles are larger, and each of these larger angles is equal to the sum of the two acute angles.
+
+### Drawing a Diagram
+Visualizing helps. Let's sketch a convex pentagon ABCDE.
+
+- Points A, B, C, D, E in order.
+- Let's say angles at A and B are the two congruent, acute angles.
+- Angles at C, D, and E are the larger angles, each equal to the sum of angles A and B.
+
+### Assign Variables
+- Let the measure of angle A = angle B = x degrees (since they are congruent and acute).
+- According to the problem, angles C, D, and E are each equal to the sum of angles A and B, so angle C = angle D = angle E = x + x = 2x.
+
+### Sum of Interior Angles of a Pentagon
+I recall that the sum of the interior angles of an n-sided polygon is (n-2) × 180°.
+
+For a pentagon (n=5):
+Sum of interior angles = (5-2) × 180° = 3 × 180° = 540°.
+
+### Formulate the Equation
+Now, according to our pentagon:
+- Angle A = x
+- Angle B = x
+- Angle C = 2x
+- Angle D = 2x
+- Angle E = 2x
+
+Total sum of angles = A + B + C + D + E = x + x + 2x + 2x + 2x = 8x.
+
+But we know the total sum must be 540°.
+
+So, 8x = 540°.
+
+### Solve for x
+Let's solve for x:
+8x = 540°
+x = 540° / 8
+x = 67.5°
+
+### Check the Conditions
+The problem states that angles A and B are acute, i.e., less than 90°.
+x = 67.5° < 90° → satisfies the condition.
+
+The other angles are 2x = 135°.
+Since the pentagon is convex, all angles must be less than 180°.
+135° < 180° → satisfies the condition.
+
+### Find the Common Measure of the Large Angles
+The problem asks for the common measure of the large angles, which are angles C, D, and E, each equal to 2x.
+
+From above, 2x = 135°.
+
+### Verification
+Just to be sure, let's verify the total sum:
+- Two angles at 67.5° → 2 × 67.5° = 135°
+- Three angles at 135° → 3 × 135° = 405°
+Total sum = 135° + 405° = 540° → matches the required sum.
+
+### Conclusion
+The common measure of the large angles is 135°.
+
+\boxed{135}","If $x$ is the measure in degrees of each of the acute angles, then each of the larger angles measures $2x$ degrees.  Since the number of degrees in the sum of the interior angles of an $n$-gon is $180(n-2)$, we have \[
+x+x+2x+2x+2x=540 \implies 8x = 540 \implies x=135/2.
+\] The large angles each measure $2x=\boxed{135}$ degrees.",1,0.022196
+"Below is a magic square, meaning that the sum of the numbers in each row, in each column, and in each of the $2$ main diagonals are equal. What is the value of $n$?
+
+[asy]size(125);
+for(int i = 0; i<4; ++i)
+{
+
+draw((0,i)--(3,i),linewidth(1));
+}
+
+for(int j = 0; j<4; ++j)
+{
+
+draw((j,0)--(j,3),linewidth(1));
+}
+
+label(""$n-3$"",(.5,.5));
+label(""3"",(.5,1.5));
+label(""$n+1$"",(.5,2.5));
+
+label(""$n+2$"",(1.5,.5));
+label(""$2n-9$"",(1.5,1.5));
+label(""$1$"",(1.5,2.5));
+
+label(""$2$"",(2.5,.5));
+label(""$n$"",(2.5,1.5));
+label(""$n-1$"",(2.5,2.5));
+[/asy]","Alright, I have this problem about a magic square, and I need to find the value of \( n \). A magic square is a grid where the sums of numbers in each row, each column, and both main diagonals are equal. 
+
+First, let's understand the given magic square. From the Asymptote code, it's a 3x3 grid (since it's from 0 to 3, but the labels are placed at .5, so it's 3 rows and 3 columns). Here's how I can represent the square based on the labels:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+n-3 & n+2 & 2 \\
+\hline
+3 & 2n-9 & n \\
+\hline
+n+1 & 1 & n-1 \\
+\hline
+\end{array}
+\]
+
+Okay, so the magic square looks like this:
+
+- First row: \( n-3 \), \( n+2 \), 2
+- Second row: 3, \( 2n-9 \), \( n \)
+- Third row: \( n+1 \), 1, \( n-1 \)
+
+In a magic square, all rows, columns, and the two main diagonals sum to the same number. Let's call this common sum \( S \).
+
+**Step 1: Calculate the sum of the first row**
+
+First row sum: \( (n - 3) + (n + 2) + 2 = 2n - 1 \)
+
+So, \( S = 2n - 1 \).
+
+**Step 2: Calculate the sum of the second row**
+
+Second row sum: \( 3 + (2n - 9) + n = 3n - 6 \)
+
+This must equal \( S \), so:
+
+\( 3n - 6 = 2n - 1 \)
+
+Solving for \( n \):
+
+\( 3n - 2n = -1 + 6 \)
+
+\( n = 5 \)
+
+Wait, let's check if this holds for other rows or columns to ensure consistency.
+
+**Step 3: Verify with the third row**
+
+Third row sum: \( (n + 1) + 1 + (n - 1) = 2n + 1 \)
+
+This should also equal \( S = 2n - 1 \):
+
+\( 2n + 1 = 2n - 1 \)
+
+This simplifies to \( 1 = -1 \), which is not true. 
+
+Hmm, that's a contradiction. Did I make a mistake?
+
+Wait, maybe the magic square isn't labeled correctly. Let me double-check the Asymptote code.
+
+Looking at the Asymptote code:
+
+- First column: \( n-3 \) at (0.5, 2.5), 3 at (0.5, 1.5), \( n+1 \) at (0.5, 0.5)
+- Second column: \( n+2 \) at (1.5, 2.5), \( 2n-9 \) at (1.5, 1.5), 1 at (1.5, 0.5)
+- Third column: 2 at (2.5, 2.5), \( n \) at (2.5, 1.5), \( n-1 \) at (2.5, 0.5)
+
+Wait, the coordinates in Asymptote are (x, y), where y increases upwards, so (0.5, 0.5) is the bottom-left corner, and (2.5, 2.5) is the top-right corner. So the grid is:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+(0.5,2.5) & (1.5,2.5) & (2.5,2.5) \\
+n-3 & n+2 & 2 \\
+\hline
+(0.5,1.5) & (1.5,1.5) & (2.5,1.5) \\
+3 & 2n-9 & n \\
+\hline
+(0.5,0.5) & (1.5,0.5) & (2.5,0.5) \\
+n+1 & 1 & n-1 \\
+\hline
+\end{array}
+\]
+
+So the correct arrangement is:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+n-3 & n+2 & 2 \\
+\hline
+3 & 2n-9 & n \\
+\hline
+n+1 & 1 & n-1 \\
+\hline
+\end{array}
+\]
+
+I think I had it right initially. But the third row sum gave a contradiction. Maybe the magic square isn't possible as given, or perhaps I misassigned the positions.
+
+Wait, in the Asymptote code, the labels are placed at (i + 0.5, j + 0.5), where i is the column and j is the row, starting from 0. So:
+
+- First column (i=0): 
+  - j=0: (0.5, 0.5) -> n-3
+  - j=1: (0.5, 1.5) -> 3
+  - j=2: (0.5, 2.5) -> n+1
+- Second column (i=1):
+  - j=0: (1.5, 0.5) -> n+2
+  - j=1: (1.5, 1.5) -> 2n-9
+  - j=2: (1.5, 2.5) -> 1
+- Third column (i=2):
+  - j=0: (2.5, 0.5) -> 2
+  - j=1: (2.5, 1.5) -> n
+  - j=2: (2.5, 2.5) -> n-1
+
+So the grid is:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+n-3 & n+2 & 2 \\
+\hline
+3 & 2n-9 & n \\
+\hline
+n+1 & 1 & n-1 \\
+\hline
+\end{array}
+\]
+
+Yes, that's correct. Then the first row sum is \( 2n - 1 \), second row is \( 3n - 6 \), third row is \( 2n + 1 \). Setting first and second equal gives \( n = 5 \), but then first and third give \( 2(5) - 1 = 9 \) and \( 2(5) + 1 = 11 \), which are not equal. 
+
+This suggests that the magic square isn't possible as given, but the problem states it is a magic square. Maybe I misassigned the positions. 
+
+Alternative approach: perhaps the magic square is rotated or the coordinates are different. In Asymptote, (0,0) is bottom-left, (3,3) is top-right, so the labels are at the centers of the cells. Maybe the rows are upside down compared to how I arranged them.
+
+Let me try arranging it with the first row at the bottom:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+n+1 & 1 & n-1 \\
+\hline
+3 & 2n-9 & n \\
+\hline
+n-3 & n+2 & 2 \\
+\hline
+\end{array}
+\]
+
+Now, first row sum: \( n+1 + 1 + n-1 = 2n + 1 \)
+
+Second row sum: \( 3 + 2n - 9 + n = 3n - 6 \)
+
+Third row sum: \( n - 3 + n + 2 + 2 = 2n + 1 \)
+
+Set first and second equal: \( 2n + 1 = 3n - 6 \) → \( n = 7 \)
+
+Check with third row: \( 2(7) + 1 = 15 \), which matches first row.
+
+Now check columns:
+
+First column: \( n+1 + 3 + n-3 = 2n + 1 = 15 \)
+
+Second column: \( 1 + 2n - 9 + n + 2 = 3n - 6 \). For \( n = 7 \), \( 21 - 6 = 15 \)
+
+Third column: \( n-1 + n + 2 = 2n + 1 = 15 \)
+
+Diagonals:
+
+Main diagonal (top-left to bottom-right): \( n+1 + 2n-9 + 2 = 3n - 6 = 15 \)
+
+Other diagonal: \( n-1 + 2n-9 + n-3 = 4n - 13 \). For \( n = 7 \), \( 28 - 13 = 15 \)
+
+Everything checks out! So the correct arrangement is with the first row at the bottom, and \( n = 7 \).
+
+**Final Answer:**
+
+\(\boxed{7}\)","First, we can evaluate the sum across the first row, which gives $(n+1)+1+(n-1)=2n+1$.  Evaluate the sum of the entries across the second row, $3+(2n-9)+n=3n-6$. Now, since we have a magic square, these two sums are equal.  So $2n+1=3n-6$. Isolating $n$, we obtain $n = \boxed{7}$.
+
+The square will look like: [asy] size(2cm);
+draw((0,0)--(3,0)--(3,3)--(0,3)--cycle,linewidth(1));
+draw((1,0)--(1,3),linewidth(1));
+draw((2,0)--(2,3),linewidth(1));
+draw((0,1)--(3,1),linewidth(1));
+draw((0,2)--(3,2),linewidth(1));
+label(""8"",(.5,2.5));
+label(""1"",(1.5,2.5));
+label(""6"",(2.5,2.5));
+label(""3"",(.5,1.5));
+label(""5"",(1.5,1.5));
+label(""7"",(2.5,1.5));
+label(""4"",(.5,.5));
+label(""9"",(1.5,.5));
+label(""2"",(2.5,.5));
+[/asy]",1,0.016166

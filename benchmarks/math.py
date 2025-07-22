@@ -125,20 +125,20 @@ class MATHBenchmark(BaseBenchmark):
         input_text = problem["problem"]
         expected_output = problem["solution"]
         
-        round_key = f"round_{round}"
-        validation_key = f"validation_{validation_n}"
-        problem_key = f"problem_{i}"
+        # round_key = f"round_{round}"
+        # validation_key = f"validation_{validation_n}"
+        # problem_key = f"problem_{i}"
 
         # highlight-start
         # --- 更新数据结构，为每个层级添加两种失败计数器 ---
-        round_data = self.failure_report_data.setdefault(
-            round_key, 
-            {"round_total_attempts": 0, "round_failed_attempts": 0, "round_failed_problems": 0}
-        )
-        validation_data = round_data.setdefault(
-            validation_key, 
-            {"validation_total_attempts": 0, "validation_failed_attempts": 0, "validation_failed_problems": 0}
-        )
+        # round_data = self.failure_report_data.setdefault(
+        #     round_key, 
+        #     {"round_total_attempts": 0, "round_failed_attempts": 0, "round_failed_problems": 0}
+        # )
+        # validation_data = round_data.setdefault(
+        #     validation_key, 
+        #     {"validation_total_attempts": 0, "validation_failed_attempts": 0, "validation_failed_problems": 0}
+        # )
         # highlight-end
 
         max_attempts = 5
@@ -146,9 +146,9 @@ class MATHBenchmark(BaseBenchmark):
         last_exception = None
 
         for attempt in range(1, max_attempts + 1):
-            self.global_total_attempts += 1
-            round_data["round_total_attempts"] += 1
-            validation_data["validation_total_attempts"] += 1
+            # self.global_total_attempts += 1
+            # round_data["round_total_attempts"] += 1
+            # validation_data["validation_total_attempts"] += 1
             # 这里可能需要处理graph的返回值！！！！！！！
             try:
                 output, cost = await self._generate_output(graph, input_text)
@@ -165,13 +165,13 @@ class MATHBenchmark(BaseBenchmark):
                 last_exception = e
                 
                 # highlight-start
-                # --- 版本B逻辑: 每次尝试失败，增加 "failed_attempts" 计数 ---
-                round_data["round_failed_attempts"] += 1
-                validation_data["validation_failed_attempts"] += 1
-                # highlight-end
+                # # --- 版本B逻辑: 每次尝试失败，增加 "failed_attempts" 计数 ---
+                # round_data["round_failed_attempts"] += 1
+                # validation_data["validation_failed_attempts"] += 1
+                # # highlight-end
                 
-                problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
-                problem_data["failed_attempts"][str(attempt)] = str(e)
+                # problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
+                # problem_data["failed_attempts"][str(attempt)] = str(e)
                 
                 logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。失败原因： {e}")
                 if attempt < max_attempts:
@@ -180,8 +180,8 @@ class MATHBenchmark(BaseBenchmark):
         # --- 循环结束后执行 ---
         # highlight-start
         # --- 版本A逻辑: 所有尝试都失败后，增加 "failed_problems" 计数 ---
-        round_data["round_failed_problems"] += 1
-        validation_data["validation_failed_problems"] += 1
+        # round_data["round_failed_problems"] += 1
+        # validation_data["validation_failed_problems"] += 1
         # highlight-end
         
         logger.error(f"问题 {i} [Round {round}, Val {validation_n}] 所有尝试均失败，跳过。")

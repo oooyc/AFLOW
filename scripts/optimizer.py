@@ -24,9 +24,9 @@ OptimizerType = Literal["Graph", "Test"]
 
 
 class GraphOptimize(BaseModel):
-    modification: str = Field(default="", description="modification")
-    graph: str = Field(default="", description="graph")
-    prompt: str = Field(default="", description="prompt")
+    modification: str = Field(default=None, description="modification")
+    graph: str = Field(default=None, description="graph")
+    prompt: str = Field(default=None, description="prompt")
 
 
 class Optimizer:
@@ -131,8 +131,8 @@ class Optimizer:
         if self.round == 1:
             directory = self.graph_utils.create_round_directory(graph_path, self.round)
             # Load graph using graph_utils
-            self.graph = self.graph_utils.load_graph(2, graph_path)
-            # self.graph = self.graph_utils.load_graph(self.round, graph_path)
+            # self.graph = self.graph_utils.load_graph(2, graph_path)
+            self.graph = self.graph_utils.load_graph(self.round, graph_path)
             avg_score = await self.evaluation_utils.evaluate_graph(self, directory, validation_n, data, initial=True, round=round)
 
         # Create a loop until the generated graph meets the check conditions
@@ -167,7 +167,7 @@ class Optimizer:
                 graph_formatter = XmlFormatter.from_model(GraphOptimize)
                 
                 # Call the LLM with formatter
-                response = await self.optimize_llm.call_with_format(
+                response, _ = await self.optimize_llm.call_with_format(
                     graph_optimize_prompt, 
                     graph_formatter
                 )

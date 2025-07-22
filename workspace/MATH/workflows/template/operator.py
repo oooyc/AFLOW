@@ -45,8 +45,8 @@ class Operator:
                 log_entry = {
                     "node_name": self.name,
                     "input_rating": input_rating,
-                    # 还可以记录节点的输入是什么，便于追溯
-                    "node_inputs": node_inputs
+                    # 还可以记录节点的输入是什么，便于追溯，当时估计会导致上下文过长，还是别加了
+                    # "node_inputs": node_inputs
                 }
                 self.eval_log.append(log_entry)
 
