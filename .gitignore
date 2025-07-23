@@ -1,9 +1,10 @@
 .DS_Store
 config/config2.yaml
 logs
-# data/datasets
-# optimized
+data/datasets
+optimized
 */__pycache__
 *.pyc
-# /workspace
-# *.json
+/workspace
+*.json
+confg/*.yaml
