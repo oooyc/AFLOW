@@ -5,6 +5,6 @@ data/datasets
 optimized
 */__pycache__
 *.pyc
-/workspace
+workspace/*
 *.json
 confg/*.yaml

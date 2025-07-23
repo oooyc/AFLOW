@@ -118,7 +118,7 @@ class MATHBenchmark(BaseBenchmark):
     async def _generate_output(self, graph, input_text):
         # 可以在这里返回中间输出和评分，就是处理graph的return
         # 这一步讲node_evaluations清空，避免重复记录,非常重要！！！！
-        graph.node_evaluations.clear() 
+        # graph.node_evaluations.clear() 
         return await graph(input_text)
 
     async def evaluate_problem(self, i: int, problem: dict, graph: Callable, validation_n=None, round=None) -> Tuple[str, str, str, int, float]:
@@ -151,14 +151,26 @@ class MATHBenchmark(BaseBenchmark):
             # validation_data["validation_total_attempts"] += 1
             # 这里可能需要处理graph的返回值！！！！！！！
             try:
+                # `graph` 是一个为当前问题专门创建的独立实例
                 output, cost = await self._generate_output(graph, input_text)
+                
+                # highlight-start
+                # --- 关键改动: 在调用完成后，通过属性访问日志 ---
+                node_evaluations = graph.node_evaluations
+                # highlight-end
+                
                 uni_score, extracted_output = self.calculate_score(expected_output, output)
+
                 if uni_score == 0:
                     self.log_mismatch(
-                        input_text, expected_output, output, extracted_output,
-                        extract_answer_code=self.get_function_code(self.extract_model_answer), 
-                        valuation_log=graph.node_evaluations
+                        problem=input_text, 
+                        expected_output=expected_output, 
+                        prediction=output, 
+                        extracted_output=extracted_output,
+                        valuation_log=node_evaluations # <--- 传递获取到的、独立的日志
                     )
+                
+                # 返回值中也不需要包含 node_evaluations
                 return input_text, output, expected_output, uni_score, cost
 
             except Exception as e:

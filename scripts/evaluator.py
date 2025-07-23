@@ -33,30 +33,68 @@ class Evaluator:
             "DROP": DROPBenchmark,
         }
 
+    # async def graph_evaluate(
+    #     self, dataset: DatasetType, graph, params: dict, path: str, is_test: bool = False, validation_n = None, round = None
+    # ) -> Tuple[float, float, float]:
+    #     if dataset not in self.dataset_configs:
+    #         raise ValueError(f"Unsupported dataset: {dataset}")
+
+    #     data_path = self._get_data_path(dataset, is_test)
+    #     benchmark_class = self.dataset_configs[dataset]
+    #     benchmark = benchmark_class(name=dataset, file_path=data_path, log_path=path)
+
+    #     # Use params to configure the graph and benchmark
+    #     configured_graph = await self._configure_graph(dataset, graph, params)
+        
+    #     if is_test:
+    #         va_list = None  # For test data, generally use None to test all
+    #     else:
+    #         va_list = None  # Use None to test all Validation data, or set va_list (e.g., [1, 2, 3]) to use partial data
+    #     return await benchmark.run_evaluation(configured_graph, va_list, validation_n=validation_n, round=round,)
+
     async def graph_evaluate(
-        self, dataset: DatasetType, graph, params: dict, path: str, is_test: bool = False, validation_n = None, round = None
+        self, dataset: DatasetType, graph, params: dict, path: str, is_test: bool = False, validation_n=None, round=None
     ) -> Tuple[float, float, float]:
         if dataset not in self.dataset_configs:
             raise ValueError(f"Unsupported dataset: {dataset}")
 
         data_path = self._get_data_path(dataset, is_test)
         benchmark_class = self.dataset_configs[dataset]
-        benchmark = benchmark_class(name=dataset, file_path=data_path, log_path=path)
+        self.benchmark = benchmark_class(name=dataset, file_path=data_path, log_path=path)
 
-        # Use params to configure the graph and benchmark
-        configured_graph = await self._configure_graph(dataset, graph, params)
+        # highlight-start
+        # --- 改动点 1: 不再返回实例，而是返回一个配置好的“工厂” ---
+        # configured_graph 现在是一个可以被调用来创建新实例的函数或类
+        graph_factory = self._configure_graph(dataset, graph, params)
+        # highlight-end
+        
         if is_test:
-            va_list = None  # For test data, generally use None to test all
+            va_list = None
         else:
-            va_list = None  # Use None to test all Validation data, or set va_list (e.g., [1, 2, 3]) to use partial data
-        return await benchmark.run_evaluation(configured_graph, va_list, validation_n=validation_n, round=round,)
+            va_list = None
+        
+        # highlight-start
+        # --- 改动点 2: 将工厂传递给 benchmark ---
+        return await self.benchmark.run_evaluation(graph_factory, va_list, validation_n=validation_n, round=round)
+        # highlight-end
 
-    async def _configure_graph(self, dataset, graph, params: dict):
-        # Here you can configure the graph based on params
-        # For example: set LLM configuration, dataset configuration, etc.
-        dataset_config = params.get("dataset", {})
-        llm_config = params.get("llm_config", {})
-        return graph(name=dataset, llm_config=llm_config, dataset=dataset_config)
+    def _configure_graph(self, dataset, graph, params: dict):
+            # highlight-start
+            # --- 改动点 3: 返回一个可以创建实例的 lambda 函数 ---
+            dataset_config = params.get("dataset", {})
+            llm_config = params.get("llm_config", {})
+            
+            # 这个lambda函数捕获了所有必要的配置信息
+            # 每次调用它，都会创建一个全新的、配置好的Workflow实例
+            return lambda: graph(name=dataset, llm_config=llm_config, dataset=dataset_config)
+            # highlight-end
+
+    # async def _configure_graph(self, dataset, graph, params: dict):
+    #     # Here you can configure the graph based on params
+    #     # For example: set LLM configuration, dataset configuration, etc.
+    #     dataset_config = params.get("dataset", {})
+    #     llm_config = params.get("llm_config", {})
+    #     return graph(name=dataset, llm_config=llm_config, dataset=dataset_config)
 
     def _get_data_path(self, dataset: DatasetType, test: bool) -> str:
         base_path = f"data/datasets/{dataset.lower()}"
