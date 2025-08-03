@@ -308,17 +308,14 @@ class AsyncLLM:
         response = await self.__call__(formatted_prompt)
         
         # Validate and parse the response
-        if not rate_input:
-            is_valid, parsed_data = formatter.validate_response(response)
-            input_rating = None
-        else:
-            is_valid, parsed_data, input_rating = formatter.validate_response(response)
+        is_valid, parsed_data = formatter.validate_response(response)
+
         
         if not is_valid:
             error_message = formatter.format_error_message()
             raise FormatError(f"{error_message}. Raw response: {response}")
         
-        return parsed_data, input_rating
+        return parsed_data
     
     def get_usage_summary(self):
         """Get a summary of token usage and costs"""

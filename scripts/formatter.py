@@ -228,6 +228,93 @@ class CodeFormatter(BaseFormatter):
             A configured CodeFormatter instance
         """
         return cls(function_name=function_name)        
+    
+
+class CodeWithRatingFormatter(BaseFormatter):
+    """
+    Formatter for extracting code and rating from LLM responses.
+    Combines XML field validation with code extraction.
+    """
+    
+    model: Type[BaseModel]
+    code_formatter: CodeFormatter
+    
+    def __init__(self, model: Type[BaseModel], function_name: Optional[str] = None):
+        # 使用关键字参数初始化
+        super().__init__(
+            model=model,
+            code_formatter=CodeFormatter(function_name=function_name)
+        )
+    
+    def prepare_prompt(self, prompt: str) -> str:
+        # 添加XML字段说明
+        examples = []
+        for field_name, field in self.model.model_fields.items():
+            description = field.description
+            examples.append(f"<{field_name}>{description}</{field_name}>")
+        
+        example_str = "\n".join(examples)
+        
+        # 添加代码生成指令
+        code_instructions = (
+            "\n\n# Code instructions:\n"
+            "Please write your code solution in Python. "
+            "Return ONLY the complete, runnable code without explanations. "
+            "Use proper Python syntax and formatting. "
+        )
+        
+        if self.code_formatter.function_name:
+            code_instructions += (
+                f"\nMake sure to include a function named '{self.code_formatter.function_name}' in your solution. "
+                f"This function will be the entry point for the program."
+            )
+        
+        # 组合所有指令
+        return prompt + f"\n{code_instructions}\n\n# Response format (must be strictly followed):\n{example_str}"
+    
+    def validate_response(self, response: str) -> Tuple[bool, dict]:
+        # 首先验证XML字段
+        try:
+            pattern = r"<(\w+)>(.*?)</\1>"
+            matches = re.findall(pattern, response, re.DOTALL)
+            
+            found_fields = {match[0]: match[1].strip() for match in matches}
+            
+            for field_name in self.model.model_fields.keys():
+                field = self.model.model_fields[field_name]
+                is_required = field.default is None and field.default_factory is None
+                
+                if is_required and (field_name not in found_fields or not found_fields[field_name]):
+                    raise FormatError(f"Field '{field_name}' is missing or empty.")
+            
+            # 然后提取并验证代码
+            if "code" in found_fields:
+                code = found_fields["code"]
+                is_valid, code_result = self.code_formatter.validate_response(code)
+                
+                if not is_valid:
+                    raise FormatError(f"Code validation failed: {code_result.get('error', 'Unknown error')}")
+                
+                # 更新验证后的代码
+                found_fields["code"] = code_result["code"]
+            
+            return True, found_fields
+            
+        except FormatError as e:
+            return False, {"error": str(e)}
+        except Exception as e:
+            return False, {"error": f"Unexpected error: {str(e)}"}
+    
+    def format_error_message(self) -> str:
+        """Return a helpful error message if validation fails"""
+        base_message = "Response did not match the expected format. "
+        base_message += "Ensure the response contains all required XML fields and valid Python code."
+        
+        if self.code_formatter.function_name:
+            base_message += f" Also make sure the code includes a function named '{self.code_formatter.function_name}'."
+        
+        return base_message
+
         
 class TextFormatter(BaseFormatter):    
     def prepare_prompt(self, prompt: str) -> str:
@@ -238,60 +325,56 @@ class TextFormatter(BaseFormatter):
         For plain text formatter, we simply return the response as is without validation
         since there are no format restrictions
         """
-        return True, response
+        return True, response 
     
 
-class WrapperXmlFormatter(BaseFormatter):
-    # def __init__(self, ):
-    op_class: Optional[Type[BaseModel]] = None
-    inner_formatter: Optional[BaseFormatter] = None
 
+class TextWithRatingFormatter(BaseFormatter):
+    """
+    Formatter for extracting text and rating from LLM responses.
+    Combines XML field validation with text extraction.
+    """
+
+    model: Type[BaseModel]
+    
+    def __init__(self, model: Type[BaseModel]):
+        # 必须调用父类的 __init__ 方法
+        super().__init__(model=model)  # 添加这一行
+    
     def prepare_prompt(self, prompt: str) -> str:
-        # 外部的prompt在operator调用的时候已经处理过了，这里只需要处理内部的格式化
-        return self.inner_formatter.prepare_prompt(prompt)
+        # 添加XML字段说明
+        examples = []
+        for field_name, field in self.model.model_fields.items():
+            description = field.description
+            examples.append(f"<{field_name}>{description}</{field_name}>")
+        
+        example_str = "\n".join(examples)
+        
+        # 组合所有指令
+        return prompt + f"\n\n# Response format (must be strictly followed):\n{example_str}"
     
-    def validate_response(self, response):
-        # 1. 使用XmlFormatter的逻辑解析外层
-        outer_formatter = XmlFormatter.from_model(self.op_class)
-
-        is_outer_valid, outer_data = outer_formatter.validate_response(response)
-
-        if not is_outer_valid:
-            # 如果外层XML结构无效，则直接验证失败
-            return False, None
-        
-        task_output_raw = outer_data.get("task_output", "")
-        
-        # 2. 如果有内部Formatter，用它处理<task_output>的内容
-        if self.inner_formatter:
-            is_inner_valid, inner_result = self.inner_formatter.validate_response(task_output_raw)
-            if not is_inner_valid:
-                # 如果内部内容验证失败，则整个响应都视为无效
-                return False, None
+    def validate_response(self, response: str) -> Tuple[bool, dict]:
+        # 首先验证XML字段
+        try:
+            pattern = r"<(\w+)>(.*?)</\1>"
+            matches = re.findall(pattern, response, re.DOTALL)
             
-                # 如果验证成功，使用其结果
-            task_output_final = inner_result
-        else:
-            # 如果没有指定内部formatter，则直接使用原始文本
-            task_output_final = task_output_raw
-
-        # 4. 将外层的评分和处理后的内层任务输出组合成最终结果
-        input_rating = {
-            "score": outer_data.get("score", 0),
-            "justification": outer_data.get("justification", None),
-        }
-
-        return True, task_output_final, input_rating
+            found_fields = {match[0]: match[1].strip() for match in matches}
+            
+            for field_name in self.model.model_fields.keys():
+                field = self.model.model_fields[field_name]
+                is_required = field.default is None and field.default_factory is None
+                
+                if is_required and (field_name not in found_fields or not found_fields[field_name]):
+                    raise FormatError(f"Field '{field_name}' is missing or empty.")
+            
+            return True, found_fields
+            
+        except FormatError as e:
+            return False, {"error": str(e)}
+        except Exception as e:
+            return False, {"error": f"Unexpected error: {str(e)}"}
     
-    @classmethod
-    def create(cls, op_class: Optional[Type[BaseModel]] = None, inner_formatter: Optional[BaseFormatter] = None) -> "WrapperXmlFormatter":
-        """
-        Factory method to create a WrapperXmlFormatter instance
-        
-        Args:
-            function_name: Optional name of the function to extract
-            
-        Returns:
-            A configured CodeFormatter instance
-        """
-        return cls(op_class=op_class, inner_formatter=inner_formatter)    
+    def format_error_message(self) -> str:
+        """Return a helpful error message if validation fails"""
+        return "Response did not match the expected format. Ensure the response contains all required XML fields."

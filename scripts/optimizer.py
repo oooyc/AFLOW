@@ -18,6 +18,7 @@ from scripts.optimizer_utils.graph_utils import GraphUtils
 from scripts.async_llm import create_llm_instance
 from scripts.formatter import XmlFormatter, FormatError
 from scripts.logs import logger
+import traceback
 
 QuestionType = Literal["math", "code", "qa"]
 OptimizerType = Literal["Graph", "Test"]
@@ -96,7 +97,10 @@ class Optimizer:
                     break
                 except Exception as e:
                     retry_count += 1
-                    logger.info(f"Error occurred: {e}. Retrying... (Attempt {retry_count}/{max_retries})")
+                    logger.warning(f"Error occurred: {e}. Retrying... (Attempt {retry_count}/{max_retries})"
+                                    f"失败类型：{type(e).__name__}，原因：{str(e) or '无详细信息'}，"
+                                    f"Traceback：{traceback.format_exc()}"
+                                   )
                     if retry_count == max_retries:
                         logger.info("Max retries reached. Moving to next round.")
                         score = None
@@ -160,14 +164,14 @@ class Optimizer:
             graph_optimize_prompt = self.graph_utils.create_graph_optimize_prompt(
                 experience, sample["score"], graph[0], prompt, operator_description, self.type, log_data
             )
-
+            print(graph_optimize_prompt)
             # Replace ActionNode with AsyncLLM and XmlFormatter
             try:
                 # Create XmlFormatter based on GraphOptimize model
                 graph_formatter = XmlFormatter.from_model(GraphOptimize)
                 
                 # Call the LLM with formatter
-                response, _ = await self.optimize_llm.call_with_format(
+                response = await self.optimize_llm.call_with_format(
                     graph_optimize_prompt, 
                     graph_formatter
                 )
@@ -251,7 +255,7 @@ class Optimizer:
             return None
 
     async def test(self):
-        rounds = [1]  # You can choose the rounds you want to test here.
+        rounds = [16]  # You can choose the rounds you want to test here.
         data = []
 
         graph_path = f"{self.root_path}/workflows_test"

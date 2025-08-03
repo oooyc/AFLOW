@@ -12,7 +12,7 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fi
 from benchmarks.benchmark import BaseBenchmark
 from scripts.logs import logger
 import os
-
+import traceback
 import json
 import asyncio
 
@@ -167,6 +167,7 @@ class MATHBenchmark(BaseBenchmark):
                         expected_output=expected_output, 
                         prediction=output, 
                         extracted_output=extracted_output,
+                        extract_answer_code=self.get_function_code(self.extract_model_answer),
                         valuation_log=node_evaluations # <--- 传递获取到的、独立的日志
                     )
                 
@@ -185,7 +186,9 @@ class MATHBenchmark(BaseBenchmark):
                 # problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
                 # problem_data["failed_attempts"][str(attempt)] = str(e)
                 
-                logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。失败原因： {e}")
+                logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。"
+                                f"失败类型：{type(e).__name__}，原因：{str(e) or '无详细信息'}，"
+                                f"Traceback：{traceback.format_exc()}")
                 if attempt < max_attempts:
                     await asyncio.sleep(wait_seconds)
         

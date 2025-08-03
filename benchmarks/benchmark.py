@@ -51,6 +51,7 @@ class BaseBenchmark(ABC):
         expected_output: Any,
         prediction: str,
         extracted_output: Any,
+        valuation_log: Any = None,
         extract_answer_code: str = "None",
     ):
         log_data = {
@@ -59,6 +60,7 @@ class BaseBenchmark(ABC):
             "model_output": prediction,
             "extracted_output": extracted_output,
             "extract_answer_code": extract_answer_code,
+            "intermediate_eval": valuation_log,
         }
         log_file = Path(self.log_path) / "log.json"
         if log_file.exists():

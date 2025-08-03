@@ -8,3 +8,6 @@ optimized
 workspace/*
 *.json
 confg/*.yaml
+new_log/*
+workspace_before/*
+workspace_ori/*
