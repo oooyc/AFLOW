@@ -15,7 +15,7 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 
 from scripts.async_llm import AsyncLLM
 from scripts.logs import logger
-from scripts.formatter import BaseFormatter, FormatError, XmlFormatter, TextFormatter, CodeFormatter
+from scripts.formatter import BaseFormatter, FormatError, XmlFormatter, TextFormatter, CodeFormatter, CodeWithRatingFormatter, TextWithRatingFormatter
 from scripts.operator_an import (
     AnswerGenerateOp,
     CodeGenerateOp,
@@ -44,17 +44,19 @@ from scripts.utils.code import (
 )
 
 class Operator:
-    def __init__(self, llm: AsyncLLM, name: str):
+    def __init__(self, llm: AsyncLLM, name: str, eval_log: Optional[list] = None):
         self.name = name
         self.llm = llm
+        self.eval_log = eval_log
 
     def __call__(self, *args, **kwargs):
         raise NotImplementedError
 
-    async def _fill_node(self, op_class, prompt, mode=None, **extra_kwargs):
+    async def _fill_node(self, op_class, prompt, mode=None, rate_input=False, **kwargs):
         # Create appropriate formatter based on mode
-        formatter = self._create_formatter(op_class, mode, **extra_kwargs)
-        
+
+        formatter = self._create_formatter(op_class, mode, rate_input=rate_input, **kwargs)
+            
         try:
             # Use the formatter with AsyncLLM
             if formatter:
@@ -63,27 +65,44 @@ class Operator:
                 # Fallback to direct call if no formatter is needed
                 response = await self.llm(prompt)
                 
+            # 如果有日志本，就把自己的评估记录下来
+            if self.eval_log is not None and rate_input:
+                log_entry = {
+                    "node_name": self.name,
+                    "input_rating": {response.get("score", "NA"): response.get("justification", "There was no upstream node to rate.")},
+                    # 还可以记录节点的输入是什么，便于追溯，当时估计会导致上下文过长，还是别加了
+                    # "node_inputs": node_inputs
+                }
+                self.eval_log.append(log_entry)
+                response.pop("score", None)  # Remove score from response to match expected format
+                response.pop("justification", None)  # Remove justification from response to match expected format
             # Convert to expected format based on the original implementation
+
             if isinstance(response, dict):
                 return response
             else:
                 return {"response": response}
+            
         except FormatError as e:
             print(f"Format error in {self.name}: {str(e)}")
             return {"error": str(e)}
     
-    def _create_formatter(self, op_class, mode=None, **extra_kwargs) -> Optional[BaseFormatter]:
-        """Create appropriate formatter based on operation class and mode"""
+
+    def _create_formatter(self, op_class, mode=None, rate_input=False, **kwargs) -> Optional[BaseFormatter]:
+        # """Create appropriate formatter based on operation class and mode"""
         if mode == "xml_fill":
             return XmlFormatter.from_model(op_class)
         elif mode == "code_fill":
-            return CodeFormatter(**extra_kwargs)
+            if rate_input:
+                return CodeWithRatingFormatter(op_class, **kwargs)
+            return CodeFormatter(**kwargs)
         elif mode == "single_fill":
+            if rate_input:
+                return TextWithRatingFormatter(op_class)
             return TextFormatter()
         else:
             # Return None if no specific formatter is needed
             return None
-
 
 class Custom(Operator):
     def __init__(self, llm: AsyncLLM, name: str = "Custom"):
@@ -244,7 +263,7 @@ class Programmer(Operator):
         feedback = ""
         for i in range(3):
             code_response = await self.code_generate(problem, analysis, feedback, mode="code_fill")
-            code = code_response.get("code")
+            code = code_response.get("response")
             if not code:
                 return {"code": code, "output": "No code generated"}
             status, output = await self.exec_code(code)

@@ -173,7 +173,7 @@ class CodeFormatter(BaseFormatter):
                 return False, None
             
             # Return the sanitized code
-            result = {"code": sanitized_code}
+            result = {"response": sanitized_code}
             return True, result
             
         except Exception as e:
@@ -296,9 +296,9 @@ class CodeWithRatingFormatter(BaseFormatter):
                     raise FormatError(f"Code validation failed: {code_result.get('error', 'Unknown error')}")
                 
                 # 更新验证后的代码
-                found_fields["code"] = code_result["code"]
+                response = {"response": code_result["response"]}
             
-            return True, found_fields
+            return True, response
             
         except FormatError as e:
             return False, {"error": str(e)}

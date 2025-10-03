@@ -53,13 +53,14 @@ class DataUtils:
 
         sorted_items = sorted(items, key=lambda x: x["score"], reverse=True)
         scores = [item["score"] * 100 for item in sorted_items]
-
+        for i, round in enumerate(sorted_items):
+            logger.info(f"Round {round['round']} with score: {round['score']}")
         probabilities = self._compute_probabilities(scores)
         logger.info(f"\nMixed probability distribution: {probabilities}")
-        logger.info(f"\nSorted rounds: {sorted_items}")
+        # logger.info(f"\nSorted rounds: {sorted_items}")
 
         selected_index = np.random.choice(len(sorted_items), p=probabilities)
-        logger.info(f"\nSelected index: {selected_index}, Selected item: {sorted_items[selected_index]}")
+        logger.info(f"\nSelected index: {selected_index}")#, Selected item: {sorted_items[selected_index]}")
 
         return sorted_items[selected_index]
 
@@ -149,3 +150,49 @@ class DataUtils:
         self.top_scores.sort(key=lambda x: x["score"], reverse=True)
 
         return self.top_scores
+    
+    # In data_utils.py, within the DataUtils class
+
+    def load_all_candidate_workflows(self):
+        """
+        从 results.json 加载并计算所有出现过的 round 的平均分。
+        """
+        results_path = os.path.join(self.root_path, "workflows", "results.json")
+        logger.info(f"Reading scores for ALL workflows from: {results_path}")
+        if not os.path.exists(results_path):
+            raise FileNotFoundError(f"results.json not found at {results_path}")
+        
+        df = pd.read_json(results_path)
+        if df.empty:
+            return []
+        
+        # 计算每个 round 的平均分
+        avg_scores = df.groupby('round')['score'].mean().reset_index()
+        
+        # 转换为所需的字典列表格式
+        candidates = avg_scores.to_dict('records')
+        # 确保 round 是字符串
+        for c in candidates:
+            c['round'] = str(c['round'])
+            
+        return candidates
+    
+    def load_all_failure_logs(self,workflows_path):
+        """从每个 round 目录的 log.json 加载所有失败日志"""
+        print(f"Loading failure logs from subdirectories in: {workflows_path}")
+        failure_logs = {}
+        if not os.path.isdir(workflows_path):
+            return {}
+            
+        for item in os.listdir(workflows_path):
+            if item.startswith("round_"):
+                round_id = item.split("_")[1]
+                log_file = os.path.join(workflows_path, item, "log.json")
+                if os.path.exists(log_file):
+                    try:
+                        with open(log_file, "r", encoding="utf-8") as f:
+                            failure_logs[round_id] = json.load(f)
+                    except json.JSONDecodeError:
+                        print(f"  - Warning: Could not decode JSON from {log_file}")
+                        failure_logs[round_id] = []
+        return failure_logs

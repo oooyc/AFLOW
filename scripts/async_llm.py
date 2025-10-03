@@ -287,7 +287,7 @@ class AsyncLLM:
         
     #     return ret
     
-    async def call_with_format(self, prompt: str, formatter: BaseFormatter, rate_input: bool = False) -> Any:
+    async def call_with_format(self, prompt: str, formatter: BaseFormatter) -> Any:
         """
         Call the LLM with a prompt and format the response using the provided formatter
         

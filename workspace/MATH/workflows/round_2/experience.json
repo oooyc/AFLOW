@@ -1,0 +1,7 @@
+{
+    "father node": "1",
+    "modification": "Added ScEnsemble operator to generate multiple candidate solutions and select the most consistent answer. Modified the workflow to generate 3 candidate solutions using the Custom operator with an improved prompt, then apply self-consistency voting via ScEnsemble to determine the final answer. This enhances reliability through majority voting while maintaining the same core structure.",
+    "before": 0.5630252100840331,
+    "after": 0.6638655462184874,
+    "succeed": true
+}

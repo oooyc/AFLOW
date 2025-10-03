@@ -87,3 +87,63 @@ feedback: {feedback}
 
 Ensure the output code is self-contained, and without any additional text or test cases.
 """
+
+
+
+# 专门为修复导入错误设计的提示
+CORRECTION_PROMPT_TEMPLATE = """
+# Workflow Correction Task
+
+## Context
+The following workflow code failed during execution due to a `NameError`. This almost always means a required library (like 're', 'math', 'json', etc.) was not imported in the `graph.py` file.
+
+## Error
+- Error Type: {error_type}
+- Error Message: {error_message}
+
+## Broken `graph.py`
+```python
+{graph_code}
+```
+
+## Broken `prompt.py`
+```python
+{prompt_code}
+```
+
+## Your Task
+Your ONLY task is to add the necessary import statement(s) at the top of the graph.py file to fix the error.
+
+DO NOT change any other part of the code logic.
+
+DO NOT add comments explaining your changes.
+
+Return the corrected graph.py and the original prompt.py in the specified XML format.
+
+<GraphOptimize>
+<modification>Added missing import statement for '{missing_module}'.</modification>
+<graph>
+[Your corrected graph.py code here]
+</graph>
+<prompt>
+[The original, unchanged prompt.py code here]
+</prompt>
+</GraphOptimize>
+"""
+
+SYNTAX_CORRECTION_PROMPT_TEMPLATE = """
+You are an expert Python programmer. The following Python code has a syntax error.
+Your task is to fix the syntax error and provide only the complete, corrected code. Do not add any explanations, comments, or introductory text.
+
+Here is the error information:
+- Error Message: {error_message}
+- Line Number: {line_number}
+- Offending Line: {error_text}
+
+Here is the full code with the error:
+```python
+{full_code}
+Please provide the corrected full code below.
+Don't include any explanations or comments.
+Just provide the corrected full code. 
+"""

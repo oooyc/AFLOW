@@ -8,7 +8,7 @@ from sympy import N, simplify
 from sympy.parsing.latex import parse_latex
 from sympy.parsing.sympy_parser import parse_expr
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
-
+from scripts.exception import WorkflowSyntaxError, WorkflowAttributeError
 from benchmarks.benchmark import BaseBenchmark
 from scripts.logs import logger
 import os
@@ -177,27 +177,37 @@ class MATHBenchmark(BaseBenchmark):
             except Exception as e:
                 last_exception = e
                 
-                # highlight-start
-                # # --- 版本B逻辑: 每次尝试失败，增加 "failed_attempts" 计数 ---
-                # round_data["round_failed_attempts"] += 1
-                # validation_data["validation_failed_attempts"] += 1
-                # # highlight-end
+                # ✨ 第一个改动：处理 NameError (已存在)
+                if isinstance(e, NameError) and "is not defined" in str(e):
+                    logger.error(f"检测到可修复的语法错误 (Round {round}): {e}")
+                    raise WorkflowSyntaxError(
+                        message=f"Missing import in workflow",
+                        original_error=e,
+                        round_number=round
+                    ) from e
                 
-                # problem_data = validation_data.setdefault(problem_key, {"failed_attempts": {}})
-                # problem_data["failed_attempts"][str(attempt)] = str(e)
+                # ✨ 第二个改动：新增对 AttributeError 的处理
+                elif isinstance(e, AttributeError):
+                    # 用正则表达式从错误信息中提取文件名和属性名
+                    match = re.search(r"module '(.+?)' has no attribute '(.+?)'", str(e))
+                    if match:
+                        module_path = match.group(1)
+                        # 将模块路径转换为文件路径
+                        filename = module_path.replace('.', '/') + '.py'
+                        logger.error(f"检测到可修复的属性错误 (Round {round}): {e}")
+                        raise WorkflowAttributeError(
+                            message=f"Attribute possibly commented out in {filename}",
+                            original_error=e,
+                            round_number=round,
+                            filename=filename
+                        ) from e
                 
+                # 对于其他所有异常，继续执行原来的重试逻辑
                 logger.warning(f"问题 {i} [Round {round}, Val {validation_n}] 第 {attempt}/{max_attempts} 次尝试失败。"
-                                f"失败类型：{type(e).__name__}，原因：{str(e) or '无详细信息'}，"
-                                f"Traceback：{traceback.format_exc()}")
+                            f"失败类型：{type(e).__name__}，原因：{str(e) or '无详细信息'}，"
+                            f"Traceback：{traceback.format_exc()}")
                 if attempt < max_attempts:
                     await asyncio.sleep(wait_seconds)
-        
-        # --- 循环结束后执行 ---
-        # highlight-start
-        # --- 版本A逻辑: 所有尝试都失败后，增加 "failed_problems" 计数 ---
-        # round_data["round_failed_problems"] += 1
-        # validation_data["validation_failed_problems"] += 1
-        # highlight-end
         
         logger.error(f"问题 {i} [Round {round}, Val {validation_n}] 所有尝试均失败，跳过。")
         return input_text, str(last_exception), expected_output, 0.0, 0.0

@@ -1,19 +1,26 @@
 import re
 import json
 from enum import Enum
-from typing import Any, List, Tuple
+from typing import Any, List, Tuple, Union
 
 
 class CodeDataset(Enum):
     HUMAN_EVAL = "HumanEval"
     MBPP = "MBPP"
+    LIVE_CODE_BENCH = "LiveCodeBench"
 
 
-def extract_test_cases_from_jsonl(entry_point: str, dataset: CodeDataset = CodeDataset.HUMAN_EVAL):
-    if dataset == CodeDataset.HUMAN_EVAL.value:
-        file_path = "data/datasets/humaneval_public_test.jsonl"
-        # Retain the original hardcoded test cases
-        hardcoded_cases = {
+def extract_test_cases_from_jsonl(entry_point: str, dataset: Union[CodeDataset, str] = CodeDataset.HUMAN_EVAL):
+    # 统一获取 dataset 的字符串值
+    dataset_value = dataset.value if isinstance(dataset, CodeDataset) else dataset
+
+    file_map = {
+        CodeDataset.HUMAN_EVAL.value: "data/datasets/humaneval_public_test.jsonl",
+        CodeDataset.MBPP.value: "data/datasets/mbpp_public_test.jsonl",
+        CodeDataset.LIVE_CODE_BENCH.value: "data/datasets/livecodebench_public_test.jsonl",
+    }
+    hardcoded_cases_map = {
+        CodeDataset.HUMAN_EVAL.value: {
             "find_zero": "",
             "decode_cyclic": "",
             "decode_shift": "",
@@ -24,10 +31,8 @@ def extract_test_cases_from_jsonl(entry_point: str, dataset: CodeDataset = CodeD
             "solve": "",
             "sum_squares": "",
             "starts_one_ends": "",
-        }
-    elif dataset == CodeDataset.MBPP.value:
-        file_path = "data/datasets/mbpp_public_test.jsonl"
-        hardcoded_cases = {
+        },
+        CodeDataset.MBPP.value: {
             "remove_odd": "",
             "replace_spaces": "",
             "snake_to_camel": "",
@@ -36,16 +41,23 @@ def extract_test_cases_from_jsonl(entry_point: str, dataset: CodeDataset = CodeD
             "square_Sum": "",
             "sort_sublists": "",
             "unique_sublists": "",
-        }
-    # Check if there are hardcoded test cases
+        },
+        CodeDataset.LIVE_CODE_BENCH.value: {},
+    }
+
+    file_path = file_map.get(dataset_value)
+    hardcoded_cases = hardcoded_cases_map.get(dataset_value, {})
+
+    # 优先返回 hardcoded case
     if entry_point in hardcoded_cases:
         return hardcoded_cases[entry_point]
 
-    # If there are no hardcoded test cases, read from the file
+    # 统一文件读取逻辑
+    key = "question_id" if dataset_value == CodeDataset.LIVE_CODE_BENCH.value else "entry_point"
     with open(file_path, "r") as file:
         for line in file:
             data = json.loads(line)
-            if data.get("entry_point") == entry_point:
+            if data.get(key) == entry_point:
                 return data.get("test")
 
     return None
