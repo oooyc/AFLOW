@@ -1,109 +1,76 @@
-# AFlow: Automating Agentic Workflow Generation
+# CAFG
 
-[![Arxiv](https://img.shields.io/badge/arXiv-AFlow-b31b1b)](https://arxiv.org/abs/2410.10762)
-[![PR Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/FoundationAgents/AFlow/pulls)
+**Cluster-Awareness and Fine-Grained Feedback Driven Optimization Method for LLM-based Multi-Agent Systems**
 
-> If you encounter any difficulties in using or reproducing the code, please contact me directly (Email: didi4goooogle@gmail.com, Wechat: 18831933368). Some Operators may have bugs during the migration from MetaGPT to this repository.
+Chao Ouyang, et al. *Computer Engineering and Applications (计算机工程与应用), 2025.*
 
+CAFG is the official implementation of the paper above. It builds on the [AFlow](https://github.com/FoundationAgents/AFlow) automatic agentic-workflow optimizer and improves its search with two components:
 
-AFlow is a framework for automatically generating and optimizing Agentic Workflows. It uses Monte Carlo tree search in a code-represented workflow space to find effective workflows, replacing manual development with machine effort. Our approach shows potential to outperform handcrafted workflows on various tasks. 
+- **Cluster-aware merging of redundant workflows.** Candidate workflows are represented by structural + semantic features; functionally redundant search branches are detected by Louvain community detection over a workflow-similarity graph and merged, cutting wasted exploration (design redundancy reduced from **63% to 54%** in our experiments). See `scripts/optimizer_utils/diversity_utils.py` and `select_merge.py`.
+- **Node-level fine-grained feedback.** Sparse end-to-end rewards are decomposed into local, per-node signals (input-quality scoring + self-reflection), giving the optimizer per-agent-interaction credit instead of a single trajectory-level score.
 
-We're building it to support more benchmarks and open-ended tasks! If you have any questions, please open an issue or email us!
+Across multiple reasoning and code-generation benchmarks, these additions raise the average score to **84.2** while improving search convergence and robustness.
 
-<p align="center">
-<a href=""><img src="assets/AFLOW-performance.jpg" alt="Performance Of AFlow" title="Performance of AFlow<sub>1</sub>" width="80%"></a>
-</p>
+> Built on **AFlow** (Zhang et al., ICLR 2025). This repository keeps AFlow's workflow representation, operators, and MCTS-style optimizer, and adds the cluster-aware and fine-grained-feedback components above.
 
-## Framework Components
+## Components added over AFlow
 
-- **Node**: Basic unit of LLM invocation. See `metagpt_core/action_nodes/action_node.py` for a flexible interface to control LLM, temperature, format, and prompt.
-- **Operator**: Predefined combinations of Nodes to enhance search efficiency. Encapsulates common operations like Generate, Format, Review, Revise, Ensemble, Test, and Programmer. See `operator.py` for details. You can customize your own Operator by referencing the implementations in this code.
-- **Workflow**: A sequence of LLM-invoking nodes connected by edges. Can be represented as graphs, neural networks, or code to express various execution structures. See `workflow.py` for our implementation.
-- **Optimizer**: Uses LLMs within a Monte Carlo Tree Search variant to explore and refine workflows. Iteratively selects, expands, evaluates, and updates workflows based on performance. See `optimizer.py` for details.
-- **Evaluator**: Assesses workflow performance on given tasks. Provides feedback to guide the optimization process towards more effective workflows. See `evaluator.py` for details.
+| Component | Where |
+|---|---|
+| Workflow structural + semantic similarity, Louvain clustering, redundant-branch merging | `scripts/optimizer_utils/diversity_utils.py`, `select_merge.py` |
+| Node-level fine-grained feedback (input-quality scoring + self-reflection) | `scripts/optimizer.py`, `scripts/evaluator.py`, `workspace/*/workflows/template/` |
 
-<p align="center">
-<a href=""><img src="assets/AFLOW-method.jpg" alt="Framework of AFlow" title="Framework of AFlow <sub>1</sub>" width="80%"></a>
-</p>
+AFlow's original abstractions — Node, Operator, Workflow, Optimizer, Evaluator — are retained; see the AFlow repo for their design.
 
-## Datasets
+## Installation
 
-### Experimental Datasets
-We conducted experiments on six datasets (HumanEval, MBPP, GSM8K, MATH, HotpotQA, DROP) and provide their evaluation code. The data can be found in this [datasets](https://drive.google.com/uc?export=download&id=1DNoegtZiUhWtvkd2xoIuElmIi4ah7k8e) link, or you can download them using `metagpt/ext/aflow/data/download_data.py`
+```bash
+conda create -n cafg python=3.9 -y
+conda activate cafg
+pip install -r requirements.txt
+```
 
-<p align="center">
-<a href=""><img src="assets/AFLOW-experiment.jpg" alt="Performance Of AFlow" title="Performance Of AFlow <sub>1</sub>" width="80%"></a>
-</p>
-
-### Custom Datasets
-For custom tasks, you can reference the code in the `benchmark` folder. Inherit the `BaseBenchmark` class and implement `evaluate_problem`, `calculate_score`, and `get_result_columns` to add your custom dataset benchmark. Then, add your benchmark name in `evaluator.py` and `optimizer.py` to find effective workflows for your custom dataset.
+Cluster-aware merging additionally uses `networkx`, `python-louvain` (imported as `community`), and `scikit-learn`, with optional `sentence-transformers` for semantic features (a TF-IDF fallback is used when it is unavailable).
 
 ## Quick Start
 
-1. Set up the Python environment:
+1. Configure LLM parameters in the config file (see `config/config2.example.yaml` for reference).
+2. Run optimization on a benchmark:
    ```bash
-   # Create and activate a Python 3.9 virtual environment
-   conda create -n <your_env_name> python=3.9
-
-   # Install dependencies
-   pip install -r requirements.txt
-   ```
-
-2. Configure optimization parameters:
-   - Use command line arguments or modify default parameters in `run.py`:
-     ```python
-     --dataset              # (Required) Dataset type (HumanEval/MBPP/GSM8K/MATH/HotpotQA/DROP)
-     --sample 4             # Sample count - number of workflows to be resampled
-     --optimized_path PATH  # Optimized result save path
-     --initial_round 1      # Initial round
-     --max_rounds 20        # Max iteration rounds for AFLOW
-     --check_convergence    # Whether to enable early stop
-     --validation_rounds 5  # Validation rounds for AFLOW
-     --if_first_optimize    # Set True for first optimization, False afterwards
-     ```
-
-3. Configure LLM parameters in `config/config2.yaml` (see `config/config2.example.yaml` for reference)
-
-4. Set up operators in `run.py` and in `operator.py`, `optimized_path/template/operator.json`. You can reference our implementation to add operators for specific datasets
-
-5. For first-time use, download datasets and initial rounds by setting `download(["datasets"])` in `run.py`
-
-6. (Optional) Add your custom dataset and corresponding evaluation function following the [Custom Datasets](#custom-datasets) section
-
-7. (Optional) If you want to use a portion of the validation data, you can set `va_list` in `evaluator.py`
-
-8. Run the optimization:
-   ```bash
-   # Using default parameters
    python run.py --dataset MATH
-   
-   # Or with custom parameters
-   python run.py --dataset MATH --sample n --optimized_path xxx ...
+   # or with custom parameters:
+   python run.py --dataset MATH --sample 4 --optimized_path optimized --max_rounds 20
    ```
+   Supported datasets: HumanEval, MBPP, GSM8K, MATH, HotpotQA, DROP.
 
-## Reproduce the Results in the Paper
-1. We provide the raw data obtained from our experiments in this [link](https://drive.google.com/uc?export=download&id=1Sr5wjgKf3bN8OC7G6cO3ynzJqD4w6_Dv), including the workflows and prompts generated in each iteration, as well as their trajectories on the validation dataset. We also provide the optimal workflow for each dataset and the corresponding data on the test dataset. You can download these data using `data/download_data.py`. 
-2. You can directly reproduce our experimental results by use different `ExperimentConfig` of `run.py`.
+## Datasets
 
-## Roadmap
-
-- Support multiple search algorithms
-- Support multi model search in workflow
-- Support LeaderBoard
-- Support more benchmarks
-- Support multimodality tasks
+Six benchmarks (HumanEval, MBPP, GSM8K, MATH, HotpotQA, DROP) with evaluation code under `benchmarks/`. For a custom task, inherit `BaseBenchmark` and register it in `evaluator.py` / `optimizer.py` (same interface as AFlow).
 
 ## Citation
 
-If you use AFlow in your research, please cite our paper:
+If you use this code, please cite:
 
-```
-@inproceedings{
-   zhang2025aflow,
-   title={{AF}low: Automating Agentic Workflow Generation},
-   author={Jiayi Zhang and Jinyu Xiang and Zhaoyang Yu and Fengwei Teng and Xiong-Hui Chen and Jiaqi Chen and Mingchen Zhuge and Xin Cheng and Sirui Hong and Jinlin Wang and Bingnan Zheng and Bang Liu and Yuyu Luo and Chenglin Wu},
-   booktitle={The Thirteenth International Conference on Learning Representations},
-   year={2025},
-   url={https://openreview.net/forum?id=z5uVAKwmjf}
+```bibtex
+@article{ouyang2025cafg,
+  title   = {Cluster-Awareness and Fine-Grained Feedback Driven Optimization Method for LLM-based Multi-Agent Systems},
+  author  = {Ouyang, Chao and others},
+  journal = {Computer Engineering and Applications},
+  year    = {2025}
 }
 ```
+
+This work builds on AFlow; please also cite:
+
+```bibtex
+@inproceedings{zhang2025aflow,
+  title     = {AFlow: Automating Agentic Workflow Generation},
+  author    = {Zhang, Jiayi and Xiang, Jinyu and Yu, Zhaoyang and Teng, Fengwei and Chen, Xiong-Hui and Chen, Jiaqi and Zhuge, Mingchen and Cheng, Xin and Hong, Sirui and Wang, Jinlin and Zheng, Bingnan and Liu, Bang and Luo, Yuyu and Wu, Chenglin},
+  booktitle = {The Thirteenth International Conference on Learning Representations (ICLR)},
+  year      = {2025}
+}
+```
+
+## Acknowledgement
+
+This project is built on [AFlow](https://github.com/FoundationAgents/AFlow) and MetaGPT. We thank the authors for releasing their code. Licensed under MIT (see [LICENSE](LICENSE)).
